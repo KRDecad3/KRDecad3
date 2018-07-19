@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[第一篇博文]]></title>
+    <url>%2F2018%2F07%2F18%2F%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E6%96%87%2F</url>
+    <content type="text"><![CDATA[搭建博客搭博客（用的hexo和Github）鼓捣了一天，中途遇到了一些小问题，在用1$ hexo d 部署到Github的时候不成功，猜测其中的原因可能是在Github上创建库的时候第一次输错名字了，后来又改过来的，没有深究，直接简单粗暴地全部删了重新来一遍。 参考链接搭建博客的时候参考了Hpd0ger同学和Ea5ter同学的经验，还有一个Hexo博客搭建全攻略。 结语之前都是在CSDN上写写writeup，现在刚搭好自己的博客，写下第一篇博文（虽然不太正式），心情倒是挺激动的。这是进道格的第一份暑期任务，算是完成了，后续会完善各种功能，并把学习笔记和心得体会再搬到博客上来。路漫漫其修远兮，吾将上下而求索。]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+</search>
