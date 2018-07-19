@@ -108,23 +108,34 @@
 
 
 
-  <meta name="description" content="I&apos;m the master of my sea">
-<meta property="og:type" content="website">
-<meta property="og:title" content="KRDecad3&#39;s Blog">
-<meta property="og:url" content="https://KRDecad3.github.com/categories/随笔/index.html">
+  <meta name="description" content="0x01签到扫描二维码，关注Bugku微信公众号，在公众号里输入“flag”即得到flag。  0x02这是一张单纯的图片从winhex中打开图片，在底部发现一串HTML实体编码，解码得到flag。  0x03隐写原图片的高度被更改了，IHDR文件头数据块，更改高度，把“A4”改成“F4”，保存，就可以看到被隐藏的flag（注意：图片是透明的）。  0x04telnet解压文件夹中有个pcap的文">
+<meta name="keywords" content="Bugku,CTF,Writeup">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bugku CTF 杂项（1-12） Writeup">
+<meta property="og:url" content="https://KRDecad3.github.com/2018/07/20/Bugku-CTF-杂项（1-12）-Writeup/index.html">
 <meta property="og:site_name" content="KRDecad3&#39;s Blog">
-<meta property="og:description" content="I&apos;m the master of my sea">
+<meta property="og:description" content="0x01签到扫描二维码，关注Bugku微信公众号，在公众号里输入“flag”即得到flag。  0x02这是一张单纯的图片从winhex中打开图片，在底部发现一串HTML实体编码，解码得到flag。  0x03隐写原图片的高度被更改了，IHDR文件头数据块，更改高度，把“A4”改成“F4”，保存，就可以看到被隐藏的flag（注意：图片是透明的）。  0x04telnet解压文件夹中有个pcap的文">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img-blog.csdn.net/20180609194605587?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180609194639770?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/2018060919470913?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180609194911339?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180609194934627?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180609195036264?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180609195103626?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180609195134872?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:updated_time" content="2018-07-19T16:07:41.877Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="KRDecad3&#39;s Blog">
-<meta name="twitter:description" content="I&apos;m the master of my sea">
+<meta name="twitter:title" content="Bugku CTF 杂项（1-12） Writeup">
+<meta name="twitter:description" content="0x01签到扫描二维码，关注Bugku微信公众号，在公众号里输入“flag”即得到flag。  0x02这是一张单纯的图片从winhex中打开图片，在底部发现一串HTML实体编码，解码得到flag。  0x03隐写原图片的高度被更改了，IHDR文件头数据块，更改高度，把“A4”改成“F4”，保存，就可以看到被隐藏的flag（注意：图片是透明的）。  0x04telnet解压文件夹中有个pcap的文">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20180609194605587?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 
 
 
 
 
 
-  <link rel="canonical" href="https://KRDecad3.github.com/categories/随笔/"/>
+  <link rel="canonical" href="https://KRDecad3.github.com/2018/07/20/Bugku-CTF-杂项（1-12）-Writeup/"/>
 
 
 
@@ -134,7 +145,7 @@
   };
 </script>
 
-  <title>分类: 随笔 | KRDecad3's Blog</title>
+  <title>Bugku CTF 杂项（1-12） Writeup | KRDecad3's Blog</title>
   
 
 
@@ -181,7 +192,7 @@
     
   
 
-  <div class="container sidebar-position-right ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -242,7 +253,7 @@
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
   </li>
@@ -314,85 +325,259 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>随笔<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://KRDecad3.github.com/2018/07/20/Bugku-CTF-杂项（1-12）-Writeup/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="KRDecad3">
+      <meta itemprop="description" content="I'm the master of my sea">
+      <meta itemprop="image" content="https://s1.ax1x.com/2018/07/19/P12BjO.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KRDecad3's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/07/18/第一篇博文/" itemprop="url">
-              
-                <span itemprop="name">第一篇博文</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Bugku CTF 杂项（1-12） Writeup
+              
+            
+          </h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-18T00:00:00+08:00"
-              content="2018-07-18" >
-          07-18
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
 
-    </header>
-  </article>
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-20 00:06:33 / 修改时间：00:07:41" itemprop="dateCreated datePublished" datetime="2018-07-20T00:06:33+08:00">2018-07-20</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/CTF/" itemprop="url" rel="index"><span itemprop="name">CTF</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="0x01签到"><a href="#0x01签到" class="headerlink" title="0x01签到"></a>0x01签到</h2><p>扫描二维码，关注Bugku微信公众号，在公众号里输入“flag”即得到flag。</p>
+<hr>
+<h2 id="0x02这是一张单纯的图片"><a href="#0x02这是一张单纯的图片" class="headerlink" title="0x02这是一张单纯的图片"></a>0x02这是一张单纯的图片</h2><p><img src="https://img-blog.csdn.net/20180609194605587?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>从winhex中打开图片，在底部发现一串HTML实体编码，解码得到flag。</p>
+<hr>
+<h2 id="0x03隐写"><a href="#0x03隐写" class="headerlink" title="0x03隐写"></a>0x03隐写</h2><p>原图片的高度被更改了，IHDR文件头数据块，更改高度，把“A4”改成“F4”，保存，就可以看到被隐藏的flag（注意：图片是透明的）。<br><img src="https://img-blog.csdn.net/20180609194639770?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<hr>
+<h2 id="0x04telnet"><a href="#0x04telnet" class="headerlink" title="0x04telnet"></a>0x04telnet</h2><p>解压文件夹中有个pcap的文件，用wireshark打开，右键点击任一个消息追踪流，追踪TCP流，就可以看到flag。<br><img src="https://img-blog.csdn.net/2018060919470913?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<hr>
+<h2 id="0x05眼见非实-ISCCCTF"><a href="#0x05眼见非实-ISCCCTF" class="headerlink" title="0x05眼见非实(ISCCCTF)"></a>0x05眼见非实(ISCCCTF)</h2><p>下载下来是一个zip文件，那就先解压，里面有个docx文件，拖进winhex发现文件头标识是504B0304，则推断这个docx文件是被改了后缀名的zip文件，更改后缀名后再打开，在word文件夹中的document.xml文件中发现flag。</p>
+<hr>
+<h2 id="0x06又一张图片，还单纯吗"><a href="#0x06又一张图片，还单纯吗" class="headerlink" title="0x06又一张图片，还单纯吗"></a>0x06又一张图片，还单纯吗</h2><p>放入winhex看不出什么，放到kali里，通过终端用binwalk查看，在终端输入：<br>binwalk /root/桌面/2.jpg<br><img src="https://img-blog.csdn.net/20180609194911339?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>发现里面包含两个图片，一个jpg格式，一个tiff格式；<br>使用foremost分离文件，输入：foremost /root/桌面/2.jpg<br>在output文件夹中可以找到分离的图片，得到flag。<br><img src="https://img-blog.csdn.net/20180609194934627?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br><a href="http://www.freebuf.com/sectool/15266.html" target="_blank" rel="noopener">Binwalk：后门（固件）分析利器</a><br><a href="https://www.cnblogs.com/jiaxinguoguo/p/7351202.html" target="_blank" rel="noopener">CTF中图片隐藏文件分离方法总结</a></p>
+<hr>
+<h2 id="0x07猜"><a href="#0x07猜" class="headerlink" title="0x07猜"></a>0x07猜</h2><p>给了一张某女星的图片，放到百度识图或谷歌图片里搜一下，然后此女星的名字的拼音就是flag的内容/xyx。</p>
+<hr>
+<h2 id="0x08宽带信息泄露"><a href="#0x08宽带信息泄露" class="headerlink" title="0x08宽带信息泄露"></a>0x08宽带信息泄露</h2><p>下载得到一个二进制文件，放入RoutePassView查看，题目提示flag为宽带用户名，则在里面查找user，找到username。</p>
+<hr>
+<h2 id="0x09隐写2"><a href="#0x09隐写2" class="headerlink" title="0x09隐写2"></a>0x09隐写2</h2><p>下载得到一个图片，拖到Kali里用binwalk分析，终端输入：binwalk /root/桌面/Welcome_.jpg<br><img src="https://img-blog.csdn.net/20180609195036264?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>发现里面有zip文件，再用foremost分离，终端输入：foremost /root/桌面/Welcome_.jpg<br>解压里面的00000102.zip文件，发现里面还有flag.rar和一个图片提示，提示说密码是三个数，那么就暴破吧；<br>利用fcrackzip进行暴破，路径移动到flag.rar所在文件夹，终端输入：fcrackzip  -b -l 3 -c ‘1’ -u flag.rar<br><img src="https://img-blog.csdn.net/20180609195103626?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>得到密码，再解压又出现一张图片，winhex打开，在底部发现base64编码的flag。</p>
+<hr>
+<h2 id="0x10多种方法解决"><a href="#0x10多种方法解决" class="headerlink" title="0x10多种方法解决"></a>0x10多种方法解决</h2><p>下载解压里面是个无法打开的exe文件，用文本编辑器打开，里面写着jpg和base64编码，利用解码工具解开是个二维码，扫描得到flag。<br><img src="https://img-blog.csdn.net/20180609195134872?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br><a href="http://coolaf.com/tool/imgtob" target="_blank" rel="noopener">在线图片base64编码</a><br><a href="http://jiema.wwei.cn/" target="_blank" rel="noopener">在线二维码解码器</a></p>
+<hr>
+<h2 id="0x11linux"><a href="#0x11linux" class="headerlink" title="0x11linux"></a>0x11linux</h2><p>解压得到一个名为flag的二进制文件，使用grep命令（使用正则表达式搜索文本），转换到flag所在文件路径，终端输入：grep ‘key’ -a flag<br>搜索到flag。</p>
+<hr>
+<h2 id="0x12中国菜刀"><a href="#0x12中国菜刀" class="headerlink" title="0x12中国菜刀"></a>0x12中国菜刀</h2><p>解压得到一个pcapng文件，用wireshark打开追踪TCP流，发现里面有flag.tar.gz<br>用binwalk提取，输入binwalk -e /root/桌面/caidao.pcapng<br>再解压，得到flag的文本。</p>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/IMG_20180719_203147.jpg" alt="KRDecad3 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/IMG_20180720_002926.jpg" alt="KRDecad3 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Bugku/" rel="tag"># Bugku</a>
+          
+            <a href="/tags/CTF/" rel="tag"># CTF</a>
+          
+            <a href="/tags/Writeup/" rel="tag"># Writeup</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/19/Bugku-CTF-代码审计-writeup/" rel="next" title="Bugku CTF 代码审计 writeup">
+                <i class="fa fa-chevron-left"></i> Bugku CTF 代码审计 writeup
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/20/Bugku-CTF-杂项（13-20）-Writeup/" rel="prev" title="Bugku CTF 杂项（13-20） Writeup">
+                Bugku CTF 杂项（13-20） Writeup <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODE5OS8xNDcyNw=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -413,8 +598,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -506,6 +700,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01签到"><span class="nav-number">1.</span> <span class="nav-text">0x01签到</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02这是一张单纯的图片"><span class="nav-number">2.</span> <span class="nav-text">0x02这是一张单纯的图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03隐写"><span class="nav-number">3.</span> <span class="nav-text">0x03隐写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x04telnet"><span class="nav-number">4.</span> <span class="nav-text">0x04telnet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x05眼见非实-ISCCCTF"><span class="nav-number">5.</span> <span class="nav-text">0x05眼见非实(ISCCCTF)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x06又一张图片，还单纯吗"><span class="nav-number">6.</span> <span class="nav-text">0x06又一张图片，还单纯吗</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x07猜"><span class="nav-number">7.</span> <span class="nav-text">0x07猜</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x08宽带信息泄露"><span class="nav-number">8.</span> <span class="nav-text">0x08宽带信息泄露</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x09隐写2"><span class="nav-number">9.</span> <span class="nav-text">0x09隐写2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x10多种方法解决"><span class="nav-number">10.</span> <span class="nav-text">0x10多种方法解决</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x11linux"><span class="nav-number">11.</span> <span class="nav-text">0x11linux</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x12中国菜刀"><span class="nav-number">12.</span> <span class="nav-text">0x12中国菜刀</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -640,6 +850,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
 
   
 
@@ -658,6 +872,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 

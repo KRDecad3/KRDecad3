@@ -108,23 +108,32 @@
 
 
 
-  <meta name="description" content="I&apos;m the master of my sea">
-<meta property="og:type" content="website">
-<meta property="og:title" content="KRDecad3&#39;s Blog">
-<meta property="og:url" content="https://KRDecad3.github.com/categories/随笔/index.html">
+  <meta name="description" content="0x13这么多数据包用wireshark打开，浏览一下从第104个包开始有TCP协议，那么就是从第104个包开始就是攻击机（192.168.116.138）向目标机（192.168.116.159）进行端口扫描，后面找到攻击机远程连接目标机的包（通过3389端口），网上说从第5542个包已经getshell，追踪TCP流就可以看到一串base64（但不知道原理，请赐教）。普及一下：  3389端口">
+<meta name="keywords" content="Bugku,CTF,Writeup">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bugku CTF 杂项（13-20） Writeup">
+<meta property="og:url" content="https://KRDecad3.github.com/2018/07/20/Bugku-CTF-杂项（13-20）-Writeup/index.html">
 <meta property="og:site_name" content="KRDecad3&#39;s Blog">
-<meta property="og:description" content="I&apos;m the master of my sea">
+<meta property="og:description" content="0x13这么多数据包用wireshark打开，浏览一下从第104个包开始有TCP协议，那么就是从第104个包开始就是攻击机（192.168.116.138）向目标机（192.168.116.159）进行端口扫描，后面找到攻击机远程连接目标机的包（通过3389端口），网上说从第5542个包已经getshell，追踪TCP流就可以看到一串base64（但不知道原理，请赐教）。普及一下：  3389端口">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img-blog.csdn.net/20180622113327183?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180622114205833?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180622114337312?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/2018062220412189?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180622204131739?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180622204217913?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:updated_time" content="2018-07-19T16:10:58.933Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="KRDecad3&#39;s Blog">
-<meta name="twitter:description" content="I&apos;m the master of my sea">
+<meta name="twitter:title" content="Bugku CTF 杂项（13-20） Writeup">
+<meta name="twitter:description" content="0x13这么多数据包用wireshark打开，浏览一下从第104个包开始有TCP协议，那么就是从第104个包开始就是攻击机（192.168.116.138）向目标机（192.168.116.159）进行端口扫描，后面找到攻击机远程连接目标机的包（通过3389端口），网上说从第5542个包已经getshell，追踪TCP流就可以看到一串base64（但不知道原理，请赐教）。普及一下：  3389端口">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20180622113327183?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 
 
 
 
 
 
-  <link rel="canonical" href="https://KRDecad3.github.com/categories/随笔/"/>
+  <link rel="canonical" href="https://KRDecad3.github.com/2018/07/20/Bugku-CTF-杂项（13-20）-Writeup/"/>
 
 
 
@@ -134,7 +143,7 @@
   };
 </script>
 
-  <title>分类: 随笔 | KRDecad3's Blog</title>
+  <title>Bugku CTF 杂项（13-20） Writeup | KRDecad3's Blog</title>
   
 
 
@@ -181,7 +190,7 @@
     
   
 
-  <div class="container sidebar-position-right ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -242,7 +251,7 @@
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
   </li>
@@ -314,85 +323,259 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>随笔<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://KRDecad3.github.com/2018/07/20/Bugku-CTF-杂项（13-20）-Writeup/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="KRDecad3">
+      <meta itemprop="description" content="I'm the master of my sea">
+      <meta itemprop="image" content="https://s1.ax1x.com/2018/07/19/P12BjO.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KRDecad3's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/07/18/第一篇博文/" itemprop="url">
-              
-                <span itemprop="name">第一篇博文</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Bugku CTF 杂项（13-20） Writeup
+              
+            
+          </h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-18T00:00:00+08:00"
-              content="2018-07-18" >
-          07-18
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
 
-    </header>
-  </article>
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-20 00:09:35 / 修改时间：00:10:58" itemprop="dateCreated datePublished" datetime="2018-07-20T00:09:35+08:00">2018-07-20</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/CTF/" itemprop="url" rel="index"><span itemprop="name">CTF</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="0x13这么多数据包"><a href="#0x13这么多数据包" class="headerlink" title="0x13这么多数据包"></a>0x13这么多数据包</h2><p>用wireshark打开，浏览一下从第104个包开始有TCP协议，那么就是从第104个包开始就是攻击机（192.168.116.138）向目标机（192.168.116.159）进行端口扫描，后面找到攻击机远程连接目标机的包（通过3389端口），网上说从第5542个包已经getshell，追踪TCP流就可以看到一串base64（但不知道原理，请赐教）。<br>普及一下：</p>
+<blockquote>
+<p>3389端口是Windows 2000(2003) Server远程桌面的服务端口，可以通过这个端口，用”远程桌面”等连接工具来连接到远程的服务器，如果连接上了，输入系统管理员的用户名和密码后，将变得可以像操作本机一样操作远程的电脑，因此远程服务器一般都将这个端口修改数值或者关闭。</p>
+</blockquote>
+<hr>
+<h2 id="0x14隐写3"><a href="#0x14隐写3" class="headerlink" title="0x14隐写3"></a>0x14隐写3</h2><p>下载下来是一个大白的图片，猜测是图片长度被更改了，那么用winhex打开，更改高度的“01”为“11”，保存，flag显现。<br><img src="https://img-blog.csdn.net/20180622113327183?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<hr>
+<h2 id="0x15做个游戏-08067CTF"><a href="#0x15做个游戏-08067CTF" class="headerlink" title="0x15做个游戏(08067CTF)"></a>0x15做个游戏(08067CTF)</h2><p>下载下来是一个Java写的小游戏，通过Java反编译工具查看源码，在PlaneGameFrame.java中找到一串base64，解码得到flag。（具体原理本人也不清楚）<br><a href="http://www.javadecompilers.com/" target="_blank" rel="noopener">Java在线反编译工具 </a></p>
+<hr>
+<h2 id="0x16想蹭网先解开密码"><a href="#0x16想蹭网先解开密码" class="headerlink" title="0x16想蹭网先解开密码"></a>0x16想蹭网先解开密码</h2><p>题目提示密码是电话号码并且给出了前七位，需要写个密码本遍历出后四位。<br>在其他前辈的wp上看到这么一句话：“WiFi认证过程重点在WPA的四次握手包，找到EAPOL握手协议”，过滤一下可以另存为一个文件，好像不这么做也没什么影响。<br><img src="https://img-blog.csdn.net/20180622114205833?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>附上一个python脚本，本人暂时不会python（滑稽）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#encoding:utf-8</span></span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line">attendNum = string.digits</span><br><span class="line">str1 = <span class="string">'1391040'</span></span><br><span class="line">f = open(<span class="string">'telephone.txt'</span>,<span class="string">'w'</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> attendNum:</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> attendNum:</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> attendNum:</span><br><span class="line">            <span class="keyword">for</span> l <span class="keyword">in</span> attendNum:</span><br><span class="line">                f.write(str1+i+j+k+l+<span class="string">'\n'</span>)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<p>还有一个用C写的：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;    </span><br><span class="line">    <span class="keyword">int</span> i,j,k,l;    </span><br><span class="line">    FILE *fp=<span class="literal">NULL</span>;    </span><br><span class="line">    fp=fopen(<span class="string">"telephone.txt"</span>,<span class="string">"w"</span>);    </span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=<span class="number">9</span>;i++)</span><br><span class="line">    &#123;        </span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;=<span class="number">9</span>;j++)</span><br><span class="line">        &#123;            </span><br><span class="line">            <span class="keyword">for</span>(k=<span class="number">0</span>;k&lt;=<span class="number">9</span>;k++)</span><br><span class="line">            &#123;                </span><br><span class="line">                <span class="keyword">for</span>(l=<span class="number">0</span>;l&lt;=<span class="number">9</span>;l++)</span><br><span class="line">                &#123;                    </span><br><span class="line">                    <span class="built_in">fprintf</span>(fp,<span class="string">"1391040%d%d%d%d\n"</span>,i,j,k,l);                </span><br><span class="line">                &#125;            </span><br><span class="line">            &#125;        </span><br><span class="line">        &#125;    </span><br><span class="line">    &#125;    </span><br><span class="line">fclose(fp);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行出来一个telephone.txt的密码本，把此txt文件和wifi.cap文件放到kalli里面，使用<br>aircrack-ng工具。<br>终端输入命令：<br>aircrack-ng /root/桌面/wifi.cap -w /root/桌面/telephone.txt<br>然后选择参数3回车就能看到密码。<br><img src="https://img-blog.csdn.net/20180622114337312?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<hr>
+<h2 id="0x17Linux2"><a href="#0x17Linux2" class="headerlink" title="0x17Linux2"></a>0x17Linux2</h2><p>下载得到一个名为brave的文件，放入kali。<br>使用strings命令和grep命令查找key。<br>strings /root/桌面/brave | grep -i key<br>strings命令<a href="http://man.linuxde.net/strings" target="_blank" rel="noopener">http://man.linuxde.net/strings</a><br>grep命令<a href="http://man.linuxde.net/grep" target="_blank" rel="noopener">http://man.linuxde.net/grep</a></p>
+<hr>
+<h2 id="0x18账号被盗了"><a href="#0x18账号被盗了" class="headerlink" title="0x18账号被盗了"></a>0x18账号被盗了</h2><p>打开网页，用burp抓包，更改一下cookie，把isadmin改成true，在响应里找到一个exe文件，下载下来是一个CF刷枪的工具。<br><img src="https://img-blog.csdn.net/2018062220412189?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br><img src="https://img-blog.csdn.net/20180622204131739?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>用wireshark抓包，账号密码随便填，追踪TCP流，发现两串base64，解码是邮箱的账号和密码，登陆找到flag。<br><img src="https://img-blog.csdn.net/20180622204217913?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<hr>
+<h2 id="0x19细心的大象"><a href="#0x19细心的大象" class="headerlink" title="0x19细心的大象"></a>0x19细心的大象</h2><p>下载得到一张图片，打开属性发现备注里有一串base64，暂时不知道干嘛的。<br>kali里用binwalk查看里面还有一个压缩包，foremost分离，发现里面的压缩包需要密码，那么密码就可能是base64解码的那一串。解压得到和之前一样的图片隐写，更改高度得到flag。<br>还有另一个解法<a href="https://blog.csdn.net/sanky0u/article/details/77162806" target="_blank" rel="noopener">https://blog.csdn.net/sanky0u/article/details/77162806</a></p>
+<hr>
+<h2 id="0x20爆照"><a href="#0x20爆照" class="headerlink" title="0x20爆照"></a>0x20爆照</h2><p>把图片用binwalk看一下，发现居然有辣么多东西，foremost提取，出现一堆图片，再挨个用binwalk分析，发现其中的88，888，8888是被修改过的。<br>（Linux不太会操作，又把文件移到Windows里的）<br>88里显示一张二维码，更改后缀名为jpg，扫描得到“bilibili”；<br>888里更改后缀名为jpg后，在属性里有base64编码，解码得“silisili”；<br>8888里还包含一个zip文件，foremost分离，解压得到一个二维码，扫描得“panama”。<br>题目提示为“xxx_xxx_xxx”，将以上三个字符串连起来就是flag了。</p>
+<hr>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/IMG_20180719_203147.jpg" alt="KRDecad3 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/IMG_20180720_002926.jpg" alt="KRDecad3 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Bugku/" rel="tag"># Bugku</a>
+          
+            <a href="/tags/CTF/" rel="tag"># CTF</a>
+          
+            <a href="/tags/Writeup/" rel="tag"># Writeup</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/20/Bugku-CTF-杂项（1-12）-Writeup/" rel="next" title="Bugku CTF 杂项（1-12） Writeup">
+                <i class="fa fa-chevron-left"></i> Bugku CTF 杂项（1-12） Writeup
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/20/Bugku-CTF-杂项（21-29）-Writeup/" rel="prev" title="Bugku CTF 杂项（21-29） Writeup">
+                Bugku CTF 杂项（21-29） Writeup <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODE5OS8xNDcyNw=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -413,8 +596,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -506,6 +698,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x13这么多数据包"><span class="nav-number">1.</span> <span class="nav-text">0x13这么多数据包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x14隐写3"><span class="nav-number">2.</span> <span class="nav-text">0x14隐写3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x15做个游戏-08067CTF"><span class="nav-number">3.</span> <span class="nav-text">0x15做个游戏(08067CTF)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x16想蹭网先解开密码"><span class="nav-number">4.</span> <span class="nav-text">0x16想蹭网先解开密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x17Linux2"><span class="nav-number">5.</span> <span class="nav-text">0x17Linux2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x18账号被盗了"><span class="nav-number">6.</span> <span class="nav-text">0x18账号被盗了</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x19细心的大象"><span class="nav-number">7.</span> <span class="nav-text">0x19细心的大象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x20爆照"><span class="nav-number">8.</span> <span class="nav-text">0x20爆照</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -640,6 +848,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
 
   
 
@@ -658,6 +870,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 

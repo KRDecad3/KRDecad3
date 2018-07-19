@@ -108,23 +108,40 @@
 
 
 
-  <meta name="description" content="I&apos;m the master of my sea">
-<meta property="og:type" content="website">
-<meta property="og:title" content="KRDecad3&#39;s Blog">
-<meta property="og:url" content="https://KRDecad3.github.com/categories/随笔/index.html">
+  <meta name="description" content="ps:本篇博文是从本人的CSDN上搬过来的。 0x01extract变量覆盖extract()函数功能：从数组中将变量导入到当前的符号表。使用数组键名作为变量名，使用数组键值作为变量值。extract(array,extract_rules,prefix)题中给出extract($_GET)，相当于：$shiyan = $_GET[‘shiyan’]$flag = $_GET[‘flag’]。另外">
+<meta name="keywords" content="Bugku,CTF,Writeup">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bugku CTF 代码审计 writeup">
+<meta property="og:url" content="https://KRDecad3.github.com/2018/07/19/Bugku-CTF-代码审计-writeup/index.html">
 <meta property="og:site_name" content="KRDecad3&#39;s Blog">
-<meta property="og:description" content="I&apos;m the master of my sea">
+<meta property="og:description" content="ps:本篇博文是从本人的CSDN上搬过来的。 0x01extract变量覆盖extract()函数功能：从数组中将变量导入到当前的符号表。使用数组键名作为变量名，使用数组键值作为变量值。extract(array,extract_rules,prefix)题中给出extract($_GET)，相当于：$shiyan = $_GET[‘shiyan’]$flag = $_GET[‘flag’]。另外">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img-blog.csdn.net/20180521222539581?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180521222600813?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180521222634633?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180521222718938?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180521222735955?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180521223330368?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180522170144341?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180522170559928?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180522170946308?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180522171014134?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180522171050176?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180522171145293?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180522171304561?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180522171338165?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:updated_time" content="2018-07-19T15:59:02.597Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="KRDecad3&#39;s Blog">
-<meta name="twitter:description" content="I&apos;m the master of my sea">
+<meta name="twitter:title" content="Bugku CTF 代码审计 writeup">
+<meta name="twitter:description" content="ps:本篇博文是从本人的CSDN上搬过来的。 0x01extract变量覆盖extract()函数功能：从数组中将变量导入到当前的符号表。使用数组键名作为变量名，使用数组键值作为变量值。extract(array,extract_rules,prefix)题中给出extract($_GET)，相当于：$shiyan = $_GET[‘shiyan’]$flag = $_GET[‘flag’]。另外">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20180521222539581?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 
 
 
 
 
 
-  <link rel="canonical" href="https://KRDecad3.github.com/categories/随笔/"/>
+  <link rel="canonical" href="https://KRDecad3.github.com/2018/07/19/Bugku-CTF-代码审计-writeup/"/>
 
 
 
@@ -134,7 +151,7 @@
   };
 </script>
 
-  <title>分类: 随笔 | KRDecad3's Blog</title>
+  <title>Bugku CTF 代码审计 writeup | KRDecad3's Blog</title>
   
 
 
@@ -181,7 +198,7 @@
     
   
 
-  <div class="container sidebar-position-right ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -242,7 +259,7 @@
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
   </li>
@@ -314,85 +331,249 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>随笔<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://KRDecad3.github.com/2018/07/19/Bugku-CTF-代码审计-writeup/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="KRDecad3">
+      <meta itemprop="description" content="I'm the master of my sea">
+      <meta itemprop="image" content="https://s1.ax1x.com/2018/07/19/P12BjO.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KRDecad3's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/07/18/第一篇博文/" itemprop="url">
-              
-                <span itemprop="name">第一篇博文</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Bugku CTF 代码审计 writeup
+              
+            
+          </h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-18T00:00:00+08:00"
-              content="2018-07-18" >
-          07-18
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
 
-    </header>
-  </article>
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-19 23:53:19 / 修改时间：23:59:02" itemprop="dateCreated datePublished" datetime="2018-07-19T23:53:19+08:00">2018-07-19</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/CTF/" itemprop="url" rel="index"><span itemprop="name">CTF</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>ps:本篇博文是从本人的CSDN上搬过来的。</p>
+<h2 id="0x01extract变量覆盖"><a href="#0x01extract变量覆盖" class="headerlink" title="0x01extract变量覆盖"></a>0x01extract变量覆盖</h2><p><img src="https://img-blog.csdn.net/20180521222539581?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>extract()函数功能：从数组中将变量导入到当前的符号表。使用数组键名作为变量名，使用数组键值作为变量值。<br>extract(array,extract_rules,prefix)<br>题中给出extract($_GET)，相当于：<br>$shiyan = $_GET[‘shiyan’]<br>$flag = $_GET[‘flag’]。<br>另外，isset()函数判断$shiyan变量是否设置，<br><img src="https://img-blog.csdn.net/20180521222600813?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>像这样，即使变量为空，isset()函数也为true。<br><code>payload:?shiyan=&amp;flag=</code><br>或者利用php://伪协议：<code>payload:?shiyan=&amp;flag=php://input</code></p>
+<h2 id="0x02strcmp比较字符串"><a href="#0x02strcmp比较字符串" class="headerlink" title="0x02strcmp比较字符串"></a>0x02strcmp比较字符串</h2><p><img src="https://img-blog.csdn.net/20180521222634633?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>strcmp(str1, str2)比较两个字符串大小，若是非字符串（例如数组）比较，则会出错。在5.3之前的php中，显示了报错的警告信息后，将return 0。<br><code>payload:?a[]=1</code></p>
+<h2 id="0x03urldecode二次编码绕过"><a href="#0x03urldecode二次编码绕过" class="headerlink" title="0x03urldecode二次编码绕过"></a>0x03urldecode二次编码绕过</h2><p><img src="https://img-blog.csdn.net/20180521222718938?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>eregi()在一个字符串中搜索指定的模式的字符串，搜索不区分大小的正则匹配。<br>urldecode()解码以编码的URL字符串，但是$_GET[]会将参数解码一次。<br><img src="https://img-blog.csdn.net/20180521222735955?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>若本题将“hackerDJ”进行两次URL编码，在eregi()中比较”hackerDJ”与$_GET[id]是否相同，$_GET会解码一次，从二次URL编码变成一次URL编码；urldecode()会将$_GET[id]从二次URL编码变成一次URL编码，赋值给$_GET[id]，当$_GET[id]与“hackerDJ”比较时，$_GET[id]再从一次URL编码解码，最后比较相等得到flag。<br>将“hackerDJ”进行两次URL编码。<br><code>payload：?id=%25%36%38%25%36%31%25%36%33%25%36%62%25%36%35%25%37%32%25%34%34%25%34%61</code></p>
+<h2 id="0x04md5-函数"><a href="#0x04md5-函数" class="headerlink" title="0x04md5()函数"></a>0x04md5()函数</h2><p><img src="https://img-blog.csdn.net/20180521223330368?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>md5()计算字符串的MD5散列值。<br>md5()函数不能处理数组，使用数组绕过，md5(array)会返回null。<br><code>payload1:?username[]=1&amp;password=2</code></p>
+<h2 id="0x05数组返回NULL绕过"><a href="#0x05数组返回NULL绕过" class="headerlink" title="0x05数组返回NULL绕过"></a>0x05数组返回NULL绕过</h2><p><img src="https://img-blog.csdn.net/20180522170144341?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>strpos(string, find[, start])查找字符串在另一字符串中第一次出现的位置。<br>ereg()正则匹配，需使password中只含有英文字母和数字，又因为strpos()需要匹配“–”才能得到flag，可以使用数组绕过ereg()和strpos()。<br>ereg()只能处理字符，而password是数组，所以返回的是null，三个等号的时候不会进行类型转换。所以null!==false。<br>strpos()的参数同样不能够是数组，所以返回的依旧是null，null!==false也是正确。<br><code>payload:?password[]=1</code><br>思路二：ereg()可以进行%00截断，绕过正则匹配。<br><code>payload:?password=1%00--</code></p>
+<h2 id="0x06弱类型整数大小比较绕过"><a href="#0x06弱类型整数大小比较绕过" class="headerlink" title="0x06弱类型整数大小比较绕过"></a>0x06弱类型整数大小比较绕过</h2><p><img src="https://img-blog.csdn.net/20180522170559928?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>is_numeric(var)检测变量是否为数字或数字字符串，是则返回true，否则返回false。<br>is_numeric()对于空字符%00，无论%00放在前面还是后面都可以判断为非数值，而空格%20只能放在数值后面，实质上都是弱类型转换。<br><code>payload1:?password=1337%00</code><br><code>payload2:?password=1337%20</code><br><code>payload3:?password=1337a</code></p>
+<h2 id="0x07sha-函数比较绕过"><a href="#0x07sha-函数比较绕过" class="headerlink" title="0x07sha()函数比较绕过"></a>0x07sha()函数比较绕过</h2><p><img src="https://img-blog.csdn.net/20180522170946308?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>同md5()一样，sha1()函数也无法处理数组，因此可以构造数组绕过。<br><code>payload:?name[]=1&amp;password=2</code></p>
+<h2 id="0x08md5加密相等绕过"><a href="#0x08md5加密相等绕过" class="headerlink" title="0x08md5加密相等绕过"></a>0x08md5加密相等绕过</h2><p><img src="https://img-blog.csdn.net/20180522171014134?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>md5生成的以“0e”开头的哈希值都解释为0，所以PHP在判断时会认为相同。<br><code>payload:?a=240610708</code></p>
+<h2 id="0x09十六进制与数字比较"><a href="#0x09十六进制与数字比较" class="headerlink" title="0x09十六进制与数字比较"></a>0x09十六进制与数字比较</h2><p><img src="https://img-blog.csdn.net/20180522171050176?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>ord()返回字符串中首个字符的ASCII值。<br>题目中会要求输入的password中不能有0~9数字，并且还需要判断$number==$_GET[password]。所以将$number=3735929054转换为16进制“deadc0de”，再在前面加上0x表示16进制。<br><code>payload:?password=0xdeadc0de</code></p>
+<h2 id="0x10ereg正则-00截断"><a href="#0x10ereg正则-00截断" class="headerlink" title="0x10ereg正则%00截断"></a>0x10ereg正则%00截断</h2><p><img src="https://img-blog.csdn.net/20180522171145293?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>题目通过ereg()函数判断password中是否只含有字母或数字，进而限制password长度小于8，并且值小于9999999；在此前提下用strpos()函数搜索password中是否含有“-”，若是则输出flag。<br>解法一，利用数组绕过strpos()函数。<br><code>payload:?password[]=9999999999</code><br>解法二，利用ereg()%00截断漏洞，在用科学记数法来构造1e9满足strlen($_GET[‘password’]) &lt; 8 &amp;&amp; $_GET[‘password’]&gt; 9999999这个条件，再加上“-”来满足strpos()的条件。<br><code>payload:?password=1e9%00*-*</code></p>
+<h2 id="0x11strpos数组绕过"><a href="#0x11strpos数组绕过" class="headerlink" title="0x11strpos数组绕过"></a>0x11strpos数组绕过</h2><p><img src="https://img-blog.csdn.net/20180522171304561?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>构造数组绕过，并且值含有数字。<br><code>payload:?ctf[]=1</code></p>
+<h2 id="0x12数字验证正则绕过"><a href="#0x12数字验证正则绕过" class="headerlink" title="0x12数字验证正则绕过"></a>0x12数字验证正则绕过</h2><p><img src="https://img-blog.csdn.net/20180522171338165?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>直接POST一个password就可以，并且小于12个字符。<br><code>payload: POST:password=1</code></p>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/IMG_20180719_203147.jpg" alt="KRDecad3 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/IMG_20180720_002926.jpg" alt="KRDecad3 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Bugku/" rel="tag"># Bugku</a>
+          
+            <a href="/tags/CTF/" rel="tag"># CTF</a>
+          
+            <a href="/tags/Writeup/" rel="tag"># Writeup</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/19/Bugku-CTF-加密writeup-（未完待续）/" rel="next" title="Bugku CTF 加密writeup （未完待续）">
+                <i class="fa fa-chevron-left"></i> Bugku CTF 加密writeup （未完待续）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/20/Bugku-CTF-杂项（1-12）-Writeup/" rel="prev" title="Bugku CTF 杂项（1-12） Writeup">
+                Bugku CTF 杂项（1-12） Writeup <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODE5OS8xNDcyNw=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -413,8 +594,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -506,6 +696,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01extract变量覆盖"><span class="nav-number">1.</span> <span class="nav-text">0x01extract变量覆盖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02strcmp比较字符串"><span class="nav-number">2.</span> <span class="nav-text">0x02strcmp比较字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03urldecode二次编码绕过"><span class="nav-number">3.</span> <span class="nav-text">0x03urldecode二次编码绕过</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x04md5-函数"><span class="nav-number">4.</span> <span class="nav-text">0x04md5()函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x05数组返回NULL绕过"><span class="nav-number">5.</span> <span class="nav-text">0x05数组返回NULL绕过</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x06弱类型整数大小比较绕过"><span class="nav-number">6.</span> <span class="nav-text">0x06弱类型整数大小比较绕过</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x07sha-函数比较绕过"><span class="nav-number">7.</span> <span class="nav-text">0x07sha()函数比较绕过</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x08md5加密相等绕过"><span class="nav-number">8.</span> <span class="nav-text">0x08md5加密相等绕过</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x09十六进制与数字比较"><span class="nav-number">9.</span> <span class="nav-text">0x09十六进制与数字比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x10ereg正则-00截断"><span class="nav-number">10.</span> <span class="nav-text">0x10ereg正则%00截断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x11strpos数组绕过"><span class="nav-number">11.</span> <span class="nav-text">0x11strpos数组绕过</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x12数字验证正则绕过"><span class="nav-number">12.</span> <span class="nav-text">0x12数字验证正则绕过</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -640,6 +846,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
 
   
 
@@ -658,6 +868,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 

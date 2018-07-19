@@ -108,23 +108,42 @@
 
 
 
-  <meta name="description" content="I&apos;m the master of my sea">
-<meta property="og:type" content="website">
-<meta property="og:title" content="KRDecad3&#39;s Blog">
-<meta property="og:url" content="https://KRDecad3.github.com/categories/随笔/index.html">
+  <meta name="description" content="ps:本篇博文是从本人的CSDN上搬过来的。本人CTF小白一枚，此wp是参考网上大佬的wp再加上自己操作写出来的，如有纰漏，还请指正。 0x01滴答~滴从提供的密码可以猜测是摩尔斯密码，利用bugku自带的解码工具进行解码，space为空格，short为“.”，long为“-”，得到flag。 0x02聪明的小羊提示中有“栅栏”，则猜测为栅栏密码，并且栏数为2，利用bugku自带工具解码，得到fl">
+<meta name="keywords" content="Bugku,CTF,Writeup">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bugku CTF 加密writeup （未完待续）">
+<meta property="og:url" content="https://KRDecad3.github.com/2018/07/19/Bugku-CTF-加密writeup-（未完待续）/index.html">
 <meta property="og:site_name" content="KRDecad3&#39;s Blog">
-<meta property="og:description" content="I&apos;m the master of my sea">
+<meta property="og:description" content="ps:本篇博文是从本人的CSDN上搬过来的。本人CTF小白一枚，此wp是参考网上大佬的wp再加上自己操作写出来的，如有纰漏，还请指正。 0x01滴答~滴从提供的密码可以猜测是摩尔斯密码，利用bugku自带的解码工具进行解码，space为空格，short为“.”，long为“-”，得到flag。 0x02聪明的小羊提示中有“栅栏”，则猜测为栅栏密码，并且栏数为2，利用bugku自带工具解码，得到fl">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img-blog.csdn.net/20180518224557947?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180518224702669?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180518224743483?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180518224828261?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180518224856403?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/2018051822504040?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/2018051822511731?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180518225156882?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180518225423716?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180518231733371?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180518232636610?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180518232707869?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/2018051823272825?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/2018051823370832?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180518233727937?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180518233743529?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:updated_time" content="2018-07-19T15:52:28.075Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="KRDecad3&#39;s Blog">
-<meta name="twitter:description" content="I&apos;m the master of my sea">
+<meta name="twitter:title" content="Bugku CTF 加密writeup （未完待续）">
+<meta name="twitter:description" content="ps:本篇博文是从本人的CSDN上搬过来的。本人CTF小白一枚，此wp是参考网上大佬的wp再加上自己操作写出来的，如有纰漏，还请指正。 0x01滴答~滴从提供的密码可以猜测是摩尔斯密码，利用bugku自带的解码工具进行解码，space为空格，short为“.”，long为“-”，得到flag。 0x02聪明的小羊提示中有“栅栏”，则猜测为栅栏密码，并且栏数为2，利用bugku自带工具解码，得到fl">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20180518224557947?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 
 
 
 
 
 
-  <link rel="canonical" href="https://KRDecad3.github.com/categories/随笔/"/>
+  <link rel="canonical" href="https://KRDecad3.github.com/2018/07/19/Bugku-CTF-加密writeup-（未完待续）/"/>
 
 
 
@@ -134,7 +153,7 @@
   };
 </script>
 
-  <title>分类: 随笔 | KRDecad3's Blog</title>
+  <title>Bugku CTF 加密writeup （未完待续） | KRDecad3's Blog</title>
   
 
 
@@ -181,7 +200,7 @@
     
   
 
-  <div class="container sidebar-position-right ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -242,7 +261,7 @@
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
   </li>
@@ -314,85 +333,251 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>随笔<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://KRDecad3.github.com/2018/07/19/Bugku-CTF-加密writeup-（未完待续）/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="KRDecad3">
+      <meta itemprop="description" content="I'm the master of my sea">
+      <meta itemprop="image" content="https://s1.ax1x.com/2018/07/19/P12BjO.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KRDecad3's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/07/18/第一篇博文/" itemprop="url">
-              
-                <span itemprop="name">第一篇博文</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Bugku CTF 加密writeup （未完待续）
+              
+            
+          </h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-18T00:00:00+08:00"
-              content="2018-07-18" >
-          07-18
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
 
-    </header>
-  </article>
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-19 23:46:14 / 修改时间：23:52:28" itemprop="dateCreated datePublished" datetime="2018-07-19T23:46:14+08:00">2018-07-19</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/CTF/" itemprop="url" rel="index"><span itemprop="name">CTF</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>ps:本篇博文是从本人的CSDN上搬过来的。<br>本人CTF小白一枚，此wp是参考网上大佬的wp再加上自己操作写出来的，如有纰漏，还请指正。</p>
+<h2 id="0x01滴答-滴"><a href="#0x01滴答-滴" class="headerlink" title="0x01滴答~滴"></a>0x01滴答~滴</h2><p><img src="https://img-blog.csdn.net/20180518224557947?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""><br>从提供的密码可以猜测是摩尔斯密码，利用bugku自带的解码工具进行解码，<br>space为空格，short为“.”，long为“-”，得到flag。</p>
+<h2 id="0x02聪明的小羊"><a href="#0x02聪明的小羊" class="headerlink" title="0x02聪明的小羊"></a>0x02聪明的小羊</h2><p><img src="https://img-blog.csdn.net/20180518224702669?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>提示中有“栅栏”，则猜测为栅栏密码，并且栏数为2，利用bugku自带工具解码，得到flag。</p>
+<h2 id="0x03ok"><a href="#0x03ok" class="headerlink" title="0x03ok"></a>0x03ok</h2><p><img src="https://img-blog.csdn.net/20180518224743483?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>此加密为ook加密，利用ook解码工具，将文本解码，得flag。</p>
+<h2 id="0x04这不是摩斯密码"><a href="#0x04这不是摩斯密码" class="headerlink" title="0x04这不是摩斯密码"></a>0x04这不是摩斯密码</h2><p><img src="https://img-blog.csdn.net/20180518224828261?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>此加密为brainfuck加密，利用解码工具，得flag。</p>
+<h2 id="0x05简单加密"><a href="#0x05简单加密" class="headerlink" title="0x05简单加密"></a>0x05简单加密</h2><p><img src="https://img-blog.csdn.net/20180518224856403?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>从末尾的AA猜测出可能是凯撒移位和base64的结合，<br>首先参照ASCII吗，A是65，=是61，偏移4位。用工具中的凯撒移位解码，得到一串base64编码，再进行base64解码，得到flag。（本题的思路需要之前有一定的经验积累）</p>
+<h2 id="0x06一段Base64"><a href="#0x06一段Base64" class="headerlink" title="0x06一段Base64"></a>0x06一段Base64</h2><p>这道题还没解出来，后续会更。</p>
+<h2 id="0x07"><a href="#0x07" class="headerlink" title="0x07.!?"></a>0x07.!?</h2><p><img src="https://img-blog.csdn.net/2018051822504040?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>又是ook编码。（ook特点：有问号，点号，感叹号）</p>
+<h2 id="0x08"><a href="#0x08" class="headerlink" title="0x08+[]-"></a>0x08+[]-</h2><p><img src="https://img-blog.csdn.net/2018051822511731?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>又是brainfuck编码。（brainfuck特点：有加号，减号，方括号，尖括号）</p>
+<h2 id="0x09奇怪的密码"><a href="#0x09奇怪的密码" class="headerlink" title="0x09奇怪的密码"></a>0x09奇怪的密码</h2><p><img src="https://img-blog.csdn.net/20180518225156882?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>从密码中看到一个欧元符号和一个右花括号，分析前四个字母，其ASCII码为<br>103，110，100，107；flag四个字母的ASCII码为<br>102，108，97，103，可以看出，第一个向前移一位，第二个向前移两位，以此类推。<br>写一个简单解码脚本（PHP写不来，最后用C语言写的）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">	int i, tmp = 1, len;</span><br><span class="line">	char str[] = &quot;gndk€rlqhmtkwwp&#125;z&quot;;</span><br><span class="line"></span><br><span class="line">	len = strlen(str);</span><br><span class="line">	</span><br><span class="line">	for (i = 0; i &lt; len; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		printf(&quot;%c&quot;, (char)((int)str[i] - tmp));</span><br><span class="line">		tmp++;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="0x10托马斯-杰斐逊"><a href="#0x10托马斯-杰斐逊" class="headerlink" title="0x10托马斯.杰斐逊"></a>0x10托马斯.杰斐逊</h2><p><img src="https://img-blog.csdn.net/20180518225423716?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>这题也没解出来，后续再更。</p>
+<h2 id="0x11zip伪加密"><a href="#0x11zip伪加密" class="headerlink" title="0x11zip伪加密"></a>0x11zip伪加密</h2><p>先附上一个关于zip伪加密的讲解：<a href="https://blog.csdn.net/u011377996/article/details/79286958" target="_blank" rel="noopener">https://blog.csdn.net/u011377996/article/details/79286958</a>（侵权立删）<br><img src="https://img-blog.csdn.net/20180518231733371?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>用HxD打开压缩文件，把文件目录区的全局方式位标记中09改成00或其他偶数即可解压，得到flag.txt。</p>
+<h2 id="0x12告诉你个秘密-ISCCCTF"><a href="#0x12告诉你个秘密-ISCCCTF" class="headerlink" title="0x12告诉你个秘密(ISCCCTF)"></a>0x12告诉你个秘密(ISCCCTF)</h2><p><img src="https://img-blog.csdn.net/20180518232636610?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>从编码可以猜测出是十六进制，进行ASCII码转换，得到一串可能为base64的编码，<br><img src="https://img-blog.csdn.net/20180518232707869?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>再进行base64解码，得到四个或三个字母为一组的编码，<br><img src="https://img-blog.csdn.net/2018051823272825?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>（此处脑洞有些大）观察键盘发现，四个或三个字母围起来的字符就是解码的字符，例如：r5yG围的字母“T”，等等。<br>最后的flag格式网上说是flag:xxxxxxx<br>但我试过很多种，很多遍没成功，等会儿再试试，不过解题思路是这样。</p>
+<h2 id="0x13来自宇宙的信号"><a href="#0x13来自宇宙的信号" class="headerlink" title="0x13来自宇宙的信号"></a>0x13来自宇宙的信号</h2><p><img src="https://img-blog.csdn.net/2018051823370832?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>这道题挺有意思的。<br>打开看到一串奇怪的字符，<br><img src="https://img-blog.csdn.net/20180518233727937?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>到百度上搜搜“银河战队”没搜出来相关的文字，再搜一下“银河文字”，找到相关的文字转换，这种文字叫“标准银河字母”，<br><img src="https://img-blog.csdn.net/20180518233743529?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>然后对照解码，得到flag。</p>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/IMG_20180719_203147.jpg" alt="KRDecad3 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/IMG_20180720_002926.jpg" alt="KRDecad3 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Bugku/" rel="tag"># Bugku</a>
+          
+            <a href="/tags/CTF/" rel="tag"># CTF</a>
+          
+            <a href="/tags/Writeup/" rel="tag"># Writeup</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/18/第一篇博文/" rel="next" title="第一篇博文">
+                <i class="fa fa-chevron-left"></i> 第一篇博文
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/19/Bugku-CTF-代码审计-writeup/" rel="prev" title="Bugku CTF 代码审计 writeup">
+                Bugku CTF 代码审计 writeup <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODE5OS8xNDcyNw=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -413,8 +598,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -506,6 +700,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01滴答-滴"><span class="nav-number">1.</span> <span class="nav-text">0x01滴答~滴</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02聪明的小羊"><span class="nav-number">2.</span> <span class="nav-text">0x02聪明的小羊</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03ok"><span class="nav-number">3.</span> <span class="nav-text">0x03ok</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x04这不是摩斯密码"><span class="nav-number">4.</span> <span class="nav-text">0x04这不是摩斯密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x05简单加密"><span class="nav-number">5.</span> <span class="nav-text">0x05简单加密</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x06一段Base64"><span class="nav-number">6.</span> <span class="nav-text">0x06一段Base64</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x07"><span class="nav-number">7.</span> <span class="nav-text">0x07.!?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x08"><span class="nav-number">8.</span> <span class="nav-text">0x08+[]-</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x09奇怪的密码"><span class="nav-number">9.</span> <span class="nav-text">0x09奇怪的密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x10托马斯-杰斐逊"><span class="nav-number">10.</span> <span class="nav-text">0x10托马斯.杰斐逊</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x11zip伪加密"><span class="nav-number">11.</span> <span class="nav-text">0x11zip伪加密</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x12告诉你个秘密-ISCCCTF"><span class="nav-number">12.</span> <span class="nav-text">0x12告诉你个秘密(ISCCCTF)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x13来自宇宙的信号"><span class="nav-number">13.</span> <span class="nav-text">0x13来自宇宙的信号</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -640,6 +850,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
 
   
 
@@ -658,6 +872,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
