@@ -108,40 +108,42 @@
 
 
 
-  <meta name="description" content="ps:本篇博文是从本人的CSDN上搬过来的。 0x01extract变量覆盖extract()函数功能：从数组中将变量导入到当前的符号表。使用数组键名作为变量名，使用数组键值作为变量值。extract(array,extract_rules,prefix)题中给出extract($_GET)，相当于：$shiyan = $_GET[‘shiyan’]$flag = $_GET[‘flag’]。另外">
+  <meta name="description" content="ps:本篇博文是从本人的CSDN上搬过来的。本人CTF小白一枚，此wp是参考网上大佬的wp再加上自己操作写出来的，如有纰漏，还请指正。 0x01滴答~滴从提供的密码可以猜测是摩尔斯密码，利用bugku自带的解码工具进行解码，space为空格，short为“.”，long为“-”，得到flag。 0x02聪明的小羊提示中有“栅栏”，则猜测为栅栏密码，并且栏数为2，利用bugku自带工具解码，得到fl">
 <meta name="keywords" content="Bugku,CTF,Writeup">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Bugku CTF 代码审计 writeup">
-<meta property="og:url" content="https://KRDecad3.github.com/2018/07/19/Bugku-CTF-代码审计-writeup/index.html">
+<meta property="og:title" content="Bugku CTF 加密writeup （未完待续）">
+<meta property="og:url" content="https://KRDecad3.github.com/2018/07/19/Bugku-CTF-加密-writeup-（未完待续）/index.html">
 <meta property="og:site_name" content="KRDecad3&#39;s Blog">
-<meta property="og:description" content="ps:本篇博文是从本人的CSDN上搬过来的。 0x01extract变量覆盖extract()函数功能：从数组中将变量导入到当前的符号表。使用数组键名作为变量名，使用数组键值作为变量值。extract(array,extract_rules,prefix)题中给出extract($_GET)，相当于：$shiyan = $_GET[‘shiyan’]$flag = $_GET[‘flag’]。另外">
+<meta property="og:description" content="ps:本篇博文是从本人的CSDN上搬过来的。本人CTF小白一枚，此wp是参考网上大佬的wp再加上自己操作写出来的，如有纰漏，还请指正。 0x01滴答~滴从提供的密码可以猜测是摩尔斯密码，利用bugku自带的解码工具进行解码，space为空格，short为“.”，long为“-”，得到flag。 0x02聪明的小羊提示中有“栅栏”，则猜测为栅栏密码，并且栏数为2，利用bugku自带工具解码，得到fl">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2018/07/23/PGOlXF.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/07/23/PGO80J.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/07/23/PGOG79.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/07/23/PGOYkR.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/07/23/PGODne.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/07/23/PGOs7d.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/07/23/PGO6AA.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/07/23/PGOctI.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/07/23/PGOR9P.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/07/23/PGOW1f.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/07/23/PGOfc8.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/07/23/PGOhjS.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/07/23/PGO5ng.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/07/23/PGOIBQ.png">
-<meta property="og:updated_time" content="2018-07-23T01:27:52.708Z">
+<meta property="og:image" content="https://s1.ax1x.com/2018/07/23/PGL4oR.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/07/23/PGLIF1.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/07/23/PGLTW6.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/07/23/PGLHSK.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/07/23/PGLqyD.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/07/23/PGLLOe.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/07/23/PGLXeH.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/07/23/PGLjwd.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/07/23/PGOpfP.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/07/23/PGOCSf.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/07/23/PGOPl8.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/07/23/PGOFOg.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/07/23/PGOAmQ.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/07/23/PGOVTs.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/07/23/PGOekn.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/07/23/PGOmYq.png">
+<meta property="og:updated_time" content="2018-07-23T01:16:20.346Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bugku CTF 代码审计 writeup">
-<meta name="twitter:description" content="ps:本篇博文是从本人的CSDN上搬过来的。 0x01extract变量覆盖extract()函数功能：从数组中将变量导入到当前的符号表。使用数组键名作为变量名，使用数组键值作为变量值。extract(array,extract_rules,prefix)题中给出extract($_GET)，相当于：$shiyan = $_GET[‘shiyan’]$flag = $_GET[‘flag’]。另外">
-<meta name="twitter:image" content="https://s1.ax1x.com/2018/07/23/PGOlXF.png">
+<meta name="twitter:title" content="Bugku CTF 加密writeup （未完待续）">
+<meta name="twitter:description" content="ps:本篇博文是从本人的CSDN上搬过来的。本人CTF小白一枚，此wp是参考网上大佬的wp再加上自己操作写出来的，如有纰漏，还请指正。 0x01滴答~滴从提供的密码可以猜测是摩尔斯密码，利用bugku自带的解码工具进行解码，space为空格，short为“.”，long为“-”，得到flag。 0x02聪明的小羊提示中有“栅栏”，则猜测为栅栏密码，并且栏数为2，利用bugku自带工具解码，得到fl">
+<meta name="twitter:image" content="https://s1.ax1x.com/2018/07/23/PGL4oR.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://KRDecad3.github.com/2018/07/19/Bugku-CTF-代码审计-writeup/"/>
+  <link rel="canonical" href="https://KRDecad3.github.com/2018/07/19/Bugku-CTF-加密-writeup-（未完待续）/"/>
 
 
 
@@ -151,7 +153,7 @@
   };
 </script>
 
-  <title>Bugku CTF 代码审计 writeup | KRDecad3's Blog</title>
+  <title>Bugku CTF 加密writeup （未完待续） | KRDecad3's Blog</title>
   
 
 
@@ -351,7 +353,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://KRDecad3.github.com/2018/07/19/Bugku-CTF-代码审计-writeup/">
+    <link itemprop="mainEntityOfPage" href="https://KRDecad3.github.com/2018/07/19/Bugku-CTF-加密-writeup-（未完待续）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="KRDecad3">
@@ -368,7 +370,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Bugku CTF 代码审计 writeup
+          <h1 class="post-title" itemprop="name headline">Bugku CTF 加密writeup （未完待续）
               
             
           </h1>
@@ -393,7 +395,7 @@
                 
               
 
-              <time title="创建时间：2018-07-19 23:53:19" itemprop="dateCreated datePublished" datetime="2018-07-19T23:53:19+08:00">2018-07-19</time>
+              <time title="创建时间：2018-07-19 23:46:14" itemprop="dateCreated datePublished" datetime="2018-07-19T23:46:14+08:00">2018-07-19</time>
             
 
             
@@ -410,7 +412,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-07-23 09:27:52" itemprop="dateModified" datetime="2018-07-23T09:27:52+08:00">2018-07-23</time>
+                <time title="修改时间：2018-07-23 09:16:20" itemprop="dateModified" datetime="2018-07-23T09:16:20+08:00">2018-07-23</time>
               
             
           </span>
@@ -461,19 +463,21 @@
       
 
       
-        <p>ps:本篇博文是从本人的CSDN上搬过来的。</p>
-<h2 id="0x01extract变量覆盖"><a href="#0x01extract变量覆盖" class="headerlink" title="0x01extract变量覆盖"></a>0x01extract变量覆盖</h2><p><img src="https://s1.ax1x.com/2018/07/23/PGOlXF.png" alt="这里写图片描述"><br>extract()函数功能：从数组中将变量导入到当前的符号表。使用数组键名作为变量名，使用数组键值作为变量值。<br>extract(array,extract_rules,prefix)<br>题中给出extract($_GET)，相当于：<br>$shiyan = $_GET[‘shiyan’]<br>$flag = $_GET[‘flag’]。<br>另外，isset()函数判断$shiyan变量是否设置，<br><img src="https://s1.ax1x.com/2018/07/23/PGO80J.png" alt="这里写图片描述"><br>像这样，即使变量为空，isset()函数也为true。<br><code>payload:?shiyan=&amp;flag=</code><br>或者利用php://伪协议：<code>payload:?shiyan=&amp;flag=php://input</code></p>
-<h2 id="0x02strcmp比较字符串"><a href="#0x02strcmp比较字符串" class="headerlink" title="0x02strcmp比较字符串"></a>0x02strcmp比较字符串</h2><p><img src="https://s1.ax1x.com/2018/07/23/PGOG79.png" alt="这里写图片描述"><br>strcmp(str1, str2)比较两个字符串大小，若是非字符串（例如数组）比较，则会出错。在5.3之前的php中，显示了报错的警告信息后，将return 0。<br><code>payload:?a[]=1</code></p>
-<h2 id="0x03urldecode二次编码绕过"><a href="#0x03urldecode二次编码绕过" class="headerlink" title="0x03urldecode二次编码绕过"></a>0x03urldecode二次编码绕过</h2><p><img src="https://s1.ax1x.com/2018/07/23/PGOYkR.png" alt="这里写图片描述"><br>eregi()在一个字符串中搜索指定的模式的字符串，搜索不区分大小的正则匹配。<br>urldecode()解码以编码的URL字符串，但是$_GET[]会将参数解码一次。<br><img src="https://s1.ax1x.com/2018/07/23/PGODne.png" alt="这里写图片描述"><br>若本题将“hackerDJ”进行两次URL编码，在eregi()中比较”hackerDJ”与$_GET[id]是否相同，$_GET会解码一次，从二次URL编码变成一次URL编码；urldecode()会将$_GET[id]从二次URL编码变成一次URL编码，赋值给$_GET[id]，当$_GET[id]与“hackerDJ”比较时，$_GET[id]再从一次URL编码解码，最后比较相等得到flag。<br>将“hackerDJ”进行两次URL编码。<br><code>payload：?id=%25%36%38%25%36%31%25%36%33%25%36%62%25%36%35%25%37%32%25%34%34%25%34%61</code></p>
-<h2 id="0x04md5-函数"><a href="#0x04md5-函数" class="headerlink" title="0x04md5()函数"></a>0x04md5()函数</h2><p><img src="https://s1.ax1x.com/2018/07/23/PGOs7d.png" alt="这里写图片描述"><br>md5()计算字符串的MD5散列值。<br>md5()函数不能处理数组，使用数组绕过，md5(array)会返回null。<br><code>payload1:?username[]=1&amp;password=2</code></p>
-<h2 id="0x05数组返回NULL绕过"><a href="#0x05数组返回NULL绕过" class="headerlink" title="0x05数组返回NULL绕过"></a>0x05数组返回NULL绕过</h2><p><img src="https://s1.ax1x.com/2018/07/23/PGO6AA.png" alt="这里写图片描述"><br>strpos(string, find[, start])查找字符串在另一字符串中第一次出现的位置。<br>ereg()正则匹配，需使password中只含有英文字母和数字，又因为strpos()需要匹配“–”才能得到flag，可以使用数组绕过ereg()和strpos()。<br>ereg()只能处理字符，而password是数组，所以返回的是null，三个等号的时候不会进行类型转换。所以null!==false。<br>strpos()的参数同样不能够是数组，所以返回的依旧是null，null!==false也是正确。<br><code>payload:?password[]=1</code><br>思路二：ereg()可以进行%00截断，绕过正则匹配。<br><code>payload:?password=1%00--</code></p>
-<h2 id="0x06弱类型整数大小比较绕过"><a href="#0x06弱类型整数大小比较绕过" class="headerlink" title="0x06弱类型整数大小比较绕过"></a>0x06弱类型整数大小比较绕过</h2><p><img src="https://s1.ax1x.com/2018/07/23/PGOctI.png" alt="这里写图片描述"><br>is_numeric(var)检测变量是否为数字或数字字符串，是则返回true，否则返回false。<br>is_numeric()对于空字符%00，无论%00放在前面还是后面都可以判断为非数值，而空格%20只能放在数值后面，实质上都是弱类型转换。<br><code>payload1:?password=1337%00</code><br><code>payload2:?password=1337%20</code><br><code>payload3:?password=1337a</code></p>
-<h2 id="0x07sha-函数比较绕过"><a href="#0x07sha-函数比较绕过" class="headerlink" title="0x07sha()函数比较绕过"></a>0x07sha()函数比较绕过</h2><p><img src="https://s1.ax1x.com/2018/07/23/PGOR9P.png" alt="这里写图片描述"><br>同md5()一样，sha1()函数也无法处理数组，因此可以构造数组绕过。<br><code>payload:?name[]=1&amp;password=2</code></p>
-<h2 id="0x08md5加密相等绕过"><a href="#0x08md5加密相等绕过" class="headerlink" title="0x08md5加密相等绕过"></a>0x08md5加密相等绕过</h2><p><img src="https://s1.ax1x.com/2018/07/23/PGOW1f.png" alt="这里写图片描述"><br>md5生成的以“0e”开头的哈希值都解释为0，所以PHP在判断时会认为相同。<br><code>payload:?a=240610708</code></p>
-<h2 id="0x09十六进制与数字比较"><a href="#0x09十六进制与数字比较" class="headerlink" title="0x09十六进制与数字比较"></a>0x09十六进制与数字比较</h2><p><img src="https://s1.ax1x.com/2018/07/23/PGOfc8.png" alt="这里写图片描述"><br>ord()返回字符串中首个字符的ASCII值。<br>题目中会要求输入的password中不能有0~9数字，并且还需要判断$number==$_GET[password]。所以将$number=3735929054转换为16进制“deadc0de”，再在前面加上0x表示16进制。<br><code>payload:?password=0xdeadc0de</code></p>
-<h2 id="0x10ereg正则-00截断"><a href="#0x10ereg正则-00截断" class="headerlink" title="0x10ereg正则%00截断"></a>0x10ereg正则%00截断</h2><p><img src="https://s1.ax1x.com/2018/07/23/PGOhjS.png" alt="这里写图片描述"><br>题目通过ereg()函数判断password中是否只含有字母或数字，进而限制password长度小于8，并且值小于9999999；在此前提下用strpos()函数搜索password中是否含有“-”，若是则输出flag。<br>解法一，利用数组绕过strpos()函数。<br><code>payload:?password[]=9999999999</code><br>解法二，利用ereg()%00截断漏洞，在用科学记数法来构造1e9满足strlen($_GET[‘password’]) &lt; 8 &amp;&amp; $_GET[‘password’]&gt; 9999999这个条件，再加上“-”来满足strpos()的条件。<br><code>payload:?password=1e9%00*-*</code></p>
-<h2 id="0x11strpos数组绕过"><a href="#0x11strpos数组绕过" class="headerlink" title="0x11strpos数组绕过"></a>0x11strpos数组绕过</h2><p><img src="https://s1.ax1x.com/2018/07/23/PGO5ng.png" alt="这里写图片描述"><br>构造数组绕过，并且值含有数字。<br><code>payload:?ctf[]=1</code></p>
-<h2 id="0x12数字验证正则绕过"><a href="#0x12数字验证正则绕过" class="headerlink" title="0x12数字验证正则绕过"></a>0x12数字验证正则绕过</h2><p><img src="https://s1.ax1x.com/2018/07/23/PGOIBQ.png" alt="这里写图片描述"><br>直接POST一个password就可以，并且小于12个字符。<br><code>payload: POST:password=1</code></p>
+        <p>ps:本篇博文是从本人的CSDN上搬过来的。<br>本人CTF小白一枚，此wp是参考网上大佬的wp再加上自己操作写出来的，如有纰漏，还请指正。</p>
+<h2 id="0x01滴答-滴"><a href="#0x01滴答-滴" class="headerlink" title="0x01滴答~滴"></a>0x01滴答~滴</h2><p><img src="https://s1.ax1x.com/2018/07/23/PGL4oR.png" alt=""><br>从提供的密码可以猜测是摩尔斯密码，利用bugku自带的解码工具进行解码，<br>space为空格，short为“.”，long为“-”，得到flag。</p>
+<h2 id="0x02聪明的小羊"><a href="#0x02聪明的小羊" class="headerlink" title="0x02聪明的小羊"></a>0x02聪明的小羊</h2><p><img src="https://s1.ax1x.com/2018/07/23/PGLIF1.png" alt="这里写图片描述"><br>提示中有“栅栏”，则猜测为栅栏密码，并且栏数为2，利用bugku自带工具解码，得到flag。</p>
+<h2 id="0x03ok"><a href="#0x03ok" class="headerlink" title="0x03ok"></a>0x03ok</h2><p><img src="https://s1.ax1x.com/2018/07/23/PGLTW6.png" alt="这里写图片描述"><br>此加密为ook加密，利用ook解码工具，将文本解码，得flag。</p>
+<h2 id="0x04这不是摩斯密码"><a href="#0x04这不是摩斯密码" class="headerlink" title="0x04这不是摩斯密码"></a>0x04这不是摩斯密码</h2><p><img src="https://s1.ax1x.com/2018/07/23/PGLHSK.png" alt="这里写图片描述"><br>此加密为brainfuck加密，利用解码工具，得flag。</p>
+<h2 id="0x05简单加密"><a href="#0x05简单加密" class="headerlink" title="0x05简单加密"></a>0x05简单加密</h2><p><img src="https://s1.ax1x.com/2018/07/23/PGLqyD.png" alt="这里写图片描述"><br>从末尾的AA猜测出可能是凯撒移位和base64的结合，<br>首先参照ASCII吗，A是65，=是61，偏移4位。用工具中的凯撒移位解码，得到一串base64编码，再进行base64解码，得到flag。（本题的思路需要之前有一定的经验积累）</p>
+<h2 id="0x06一段Base64"><a href="#0x06一段Base64" class="headerlink" title="0x06一段Base64"></a>0x06一段Base64</h2><p>这道题还没解出来，后续会更。</p>
+<h2 id="0x07"><a href="#0x07" class="headerlink" title="0x07.!?"></a>0x07.!?</h2><p><img src="https://s1.ax1x.com/2018/07/23/PGLLOe.png" alt="这里写图片描述"><br>又是ook编码。（ook特点：有问号，点号，感叹号）</p>
+<h2 id="0x08"><a href="#0x08" class="headerlink" title="0x08+[]-"></a>0x08+[]-</h2><p><img src="https://s1.ax1x.com/2018/07/23/PGLXeH.png" alt="这里写图片描述"><br>又是brainfuck编码。（brainfuck特点：有加号，减号，方括号，尖括号）</p>
+<h2 id="0x09奇怪的密码"><a href="#0x09奇怪的密码" class="headerlink" title="0x09奇怪的密码"></a>0x09奇怪的密码</h2><p><img src="https://s1.ax1x.com/2018/07/23/PGLjwd.png" alt="这里写图片描述"><br>从密码中看到一个欧元符号和一个右花括号，分析前四个字母，其ASCII码为<br>103，110，100，107；flag四个字母的ASCII码为<br>102，108，97，103，可以看出，第一个向前移一位，第二个向前移两位，以此类推。<br>写一个简单解码脚本（PHP写不来，最后用C语言写的）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">	int i, tmp = 1, len;</span><br><span class="line">	char str[] = &quot;gndk€rlqhmtkwwp&#125;z&quot;;</span><br><span class="line"></span><br><span class="line">	len = strlen(str);</span><br><span class="line">	</span><br><span class="line">	for (i = 0; i &lt; len; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		printf(&quot;%c&quot;, (char)((int)str[i] - tmp));</span><br><span class="line">		tmp++;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="0x10托马斯-杰斐逊"><a href="#0x10托马斯-杰斐逊" class="headerlink" title="0x10托马斯.杰斐逊"></a>0x10托马斯.杰斐逊</h2><p><img src="https://s1.ax1x.com/2018/07/23/PGOpfP.png" alt="这里写图片描述"><br>这题也没解出来，后续再更。</p>
+<h2 id="0x11zip伪加密"><a href="#0x11zip伪加密" class="headerlink" title="0x11zip伪加密"></a>0x11zip伪加密</h2><p>先附上一个关于zip伪加密的讲解：<a href="https://blog.csdn.net/u011377996/article/details/79286958" target="_blank" rel="noopener">https://blog.csdn.net/u011377996/article/details/79286958</a>（侵权立删）<br><img src="https://s1.ax1x.com/2018/07/23/PGOCSf.png" alt="这里写图片描述"><br>用HxD打开压缩文件，把文件目录区的全局方式位标记中09改成00或其他偶数即可解压，得到flag.txt。</p>
+<h2 id="0x12告诉你个秘密-ISCCCTF"><a href="#0x12告诉你个秘密-ISCCCTF" class="headerlink" title="0x12告诉你个秘密(ISCCCTF)"></a>0x12告诉你个秘密(ISCCCTF)</h2><p><img src="https://s1.ax1x.com/2018/07/23/PGOPl8.png" alt="这里写图片描述"><br>从编码可以猜测出是十六进制，进行ASCII码转换，得到一串可能为base64的编码，<br><img src="https://s1.ax1x.com/2018/07/23/PGOFOg.png" alt="这里写图片描述"><br>再进行base64解码，得到四个或三个字母为一组的编码，<br><img src="https://s1.ax1x.com/2018/07/23/PGOAmQ.png" alt="这里写图片描述"><br>（此处脑洞有些大）观察键盘发现，四个或三个字母围起来的字符就是解码的字符，例如：r5yG围的字母“T”，等等。<br>最后的flag格式网上说是flag:xxxxxxx<br>但我试过很多种，很多遍没成功，等会儿再试试，不过解题思路是这样。</p>
+<h2 id="0x13来自宇宙的信号"><a href="#0x13来自宇宙的信号" class="headerlink" title="0x13来自宇宙的信号"></a>0x13来自宇宙的信号</h2><p><img src="https://s1.ax1x.com/2018/07/23/PGOVTs.png" alt="这里写图片描述"><br>这道题挺有意思的。<br>打开看到一串奇怪的字符，<br><img src="https://s1.ax1x.com/2018/07/23/PGOekn.png" alt="这里写图片描述"><br>到百度上搜搜“银河战队”没搜出来相关的文字，再搜一下“银河文字”，找到相关的文字转换，这种文字叫“标准银河字母”，<br><img src="https://s1.ax1x.com/2018/07/23/PGOmYq.png" alt="这里写图片描述"><br>然后对照解码，得到flag。</p>
 
       
     </div>
@@ -540,8 +544,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/19/Bugku-CTF-加密-writeup-（未完待续）/" rel="next" title="Bugku CTF 加密writeup （未完待续）">
-                <i class="fa fa-chevron-left"></i> Bugku CTF 加密writeup （未完待续）
+              <a href="/2018/07/18/第一篇博文/" rel="next" title="第一篇博文">
+                <i class="fa fa-chevron-left"></i> 第一篇博文
               </a>
             
           </div>
@@ -550,8 +554,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/07/20/Bugku-CTF-杂项（1-12）-Writeup/" rel="prev" title="Bugku CTF 杂项（1-12） Writeup">
-                Bugku CTF 杂项（1-12） Writeup <i class="fa fa-chevron-right"></i>
+              <a href="/2018/07/19/Bugku-CTF-代码审计-writeup/" rel="prev" title="Bugku CTF 代码审计 writeup">
+                Bugku CTF 代码审计 writeup <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -718,7 +722,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01extract变量覆盖"><span class="nav-number">1.</span> <span class="nav-text">0x01extract变量覆盖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02strcmp比较字符串"><span class="nav-number">2.</span> <span class="nav-text">0x02strcmp比较字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03urldecode二次编码绕过"><span class="nav-number">3.</span> <span class="nav-text">0x03urldecode二次编码绕过</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x04md5-函数"><span class="nav-number">4.</span> <span class="nav-text">0x04md5()函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x05数组返回NULL绕过"><span class="nav-number">5.</span> <span class="nav-text">0x05数组返回NULL绕过</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x06弱类型整数大小比较绕过"><span class="nav-number">6.</span> <span class="nav-text">0x06弱类型整数大小比较绕过</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x07sha-函数比较绕过"><span class="nav-number">7.</span> <span class="nav-text">0x07sha()函数比较绕过</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x08md5加密相等绕过"><span class="nav-number">8.</span> <span class="nav-text">0x08md5加密相等绕过</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x09十六进制与数字比较"><span class="nav-number">9.</span> <span class="nav-text">0x09十六进制与数字比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x10ereg正则-00截断"><span class="nav-number">10.</span> <span class="nav-text">0x10ereg正则%00截断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x11strpos数组绕过"><span class="nav-number">11.</span> <span class="nav-text">0x11strpos数组绕过</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x12数字验证正则绕过"><span class="nav-number">12.</span> <span class="nav-text">0x12数字验证正则绕过</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01滴答-滴"><span class="nav-number">1.</span> <span class="nav-text">0x01滴答~滴</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02聪明的小羊"><span class="nav-number">2.</span> <span class="nav-text">0x02聪明的小羊</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03ok"><span class="nav-number">3.</span> <span class="nav-text">0x03ok</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x04这不是摩斯密码"><span class="nav-number">4.</span> <span class="nav-text">0x04这不是摩斯密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x05简单加密"><span class="nav-number">5.</span> <span class="nav-text">0x05简单加密</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x06一段Base64"><span class="nav-number">6.</span> <span class="nav-text">0x06一段Base64</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x07"><span class="nav-number">7.</span> <span class="nav-text">0x07.!?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x08"><span class="nav-number">8.</span> <span class="nav-text">0x08+[]-</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x09奇怪的密码"><span class="nav-number">9.</span> <span class="nav-text">0x09奇怪的密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x10托马斯-杰斐逊"><span class="nav-number">10.</span> <span class="nav-text">0x10托马斯.杰斐逊</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x11zip伪加密"><span class="nav-number">11.</span> <span class="nav-text">0x11zip伪加密</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x12告诉你个秘密-ISCCCTF"><span class="nav-number">12.</span> <span class="nav-text">0x12告诉你个秘密(ISCCCTF)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x13来自宇宙的信号"><span class="nav-number">13.</span> <span class="nav-text">0x13来自宇宙的信号</span></a></li></ol></div>
             
 
           </div>
